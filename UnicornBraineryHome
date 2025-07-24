@@ -1,1 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unicorn Brainery - Bioscience Career Consultancy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #fdf6ff;
+      color: #333;
+    }
+    header {
+      background: #7f3fbf;
+      color: white;
+      padding: 20px 10px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 2.4rem;
+      letter-spacing: 1.5px;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+    h2, h3, h4 {
+      color: #5a207d;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    blockquote {
+      border-left: 4px solid #7f3fbf;
+      margin: 20px 0;
+      padding-left: 15px;
+      font-style: italic;
+      color: #554066;
+      background-color: #f7e9ff;
+    }
+    a.button {
+      display: inline-block;
+      background-color: #7f3fbf;
+      color: white;
+      padding: 12px 24px;
+      margin-top: 15px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    a.button:hover {
+      background-color: #5a207d;
+    }
+    footer {
+      text-align: center;
+      padding: 15px 10px;
+      margin-top: 40px;
+      color: #777;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Unicorn Brainery</h1>
+    <p>Unlocking Africa's Bioscience Potential</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Welcome to Unicorn Brainery</h2>
+      <p><strong>Unicorn Brainery</strong> is your trusted partner in building a thriving bioscience career in Africa. We empower students, young professionals, and organizations with the expertise, mentorship, and resources needed to unlock world-class opportunities in the biosciences.</p>
+    </section>
+
+    <section>
+      <h2>What We Do</h2>
+      
+      <h3>Personalized Career Consulting</h3>
+      <ul>
+        <li>Tailored guidance for students and graduates seeking direction in biotechnology, biomedicine, pharma, and related fields.</li>
+        <li>Support with resume building, interview preparation, and research proposal development.</li>
+      </ul>
+
+      <h3>Study & Scholarship Navigation</h3>
+      <ul>
+        <li>Assistance in identifying local and international study programs and scholarship opportunities.</li>
+        <li>Step-by-step advice for successful scholarship applications and admissions.</li>
+      </ul>
+
+      <h3>Capacity Building</h3>
+      <ul>
+        <li>Workshops, webinars, and upskilling sessions led by bioscience experts.</li>
+        <li>Mentorship programs with accomplished African professionals in academia, industry, and entrepreneurship.</li>
+      </ul>
+
+      <h3>Industry Networking</h3>
+      <ul>
+        <li>Connecting you with African and global bioscience leaders through events, seminars, and strategic introductions.</li>
+        <li>Assistance with internship, research, and job placements.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Why Choose Unicorn Brainery?</h2>
+      <ul>
+        <li>Deep understanding of <strong>Africa’s unique bioscience challenges and opportunities</strong></li>
+        <li>Seasoned consultants with international academic and industry experience</li>
+        <li>Passionate commitment to <strong>empowering the next generation</strong> of African bioscientists</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Who We Serve</h2>
+      <ul>
+        <li>Aspiring bioscience students and recent graduates</li>
+        <li>Early-career professionals seeking advancement or specialization</li>
+        <li>Innovators and startups in the African bioscience ecosystem</li>
+        <li>Educational institutions and research organizations</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Success Stories</h2>
+      <blockquote>“Thanks to Unicorn Brainery, I landed a fully-funded MSc in Biotechnology at a top UK university and built professional networks I never dreamed possible.”</blockquote>
+      <blockquote>“Their team demystified my research proposal process, and now I’m thriving in my PhD in South Africa.”</blockquote>
+    </section>
+
+    <section>
+      <h2>Get Started</h2>
+      <p><strong>Ready to chart your bioscience journey?</strong></p>
+      <ul>
+        <li>Book your free consultation.</li>
+        <li>Join our upcoming webinars and skills workshops.</li>
+        <li>Subscribe to our newsletter for expert tips and opportunity alerts.</li>
+      </ul>
+      <a href="#" class="button">Contact us today. Your future in bioscience begins here.</a>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Unicorn Brainery. Empowering Africans to lead in bioscience.
+  </footer>
+
+</body>
+</html>
+
+
+
 
