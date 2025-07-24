@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unicorn Brainery - Bioscience Career Consultancy</title>
+  <style>
+    /* Brand Colors */
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --yellow: #FFD700; /* Gold yellow */
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: var(--white);
+      color: var(--black);
+    }
+    header {
+      background: var(--black);
+      color: var(--white);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    header img.logo {
+      height: 60px;
+      width: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 8px var(--yellow);
+    }
+    header .title-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 2.4rem;
+      color: var(--yellow);
+      letter-spacing: 1.5px;
+    }
+    header p {
+      margin: 3px 0 0;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--white);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 25px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      color: var(--black);
+      border-bottom: 3px solid var(--yellow);
+      padding-bottom: 5px;
+    }
+    h3 {
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+    ul {
+      padding-left: 20px;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+    blockquote {
+      border-left: 5px solid var(--yellow);
+      margin: 20px 0;
+      padding-left: 18px;
+      font-style: italic;
+      color: #555;
+      background-color: #fff8cc;
+      border-radius: 4px;
+    }
+    a.button, button {
+      display: inline-block;
+      background-color: var(--yellow);
+      color: var(--black);
+      padding: 12px 28px;
+      margin-top: 15px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+    a.button:hover, button:hover {
+      background-color: #e6c200;
+      color: var(--black);
+    }
+    footer {
+      text-align: center;
+      padding: 18px 10px;
+      margin-top: 50px;
+      color: #444;
+      font-size: 0.95rem;
+      background-color: #f5f5f5;
+      border-top: 1px solid var(--yellow);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      header {
+        justify-content: center;
+        gap: 10px;
+        text-align: center;
+      }
+      header .title-container {
+        align-items: center;
+      }
+    }
+
+    /* Card container and card styles */
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center; /* center cards horizontally */
+      margin-top: 20px;
+    }
+
+    .card {
+      background-color: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 280px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      flex-grow: 1;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      margin-bottom: 15px;
+    }
+
+    .card .button {
+      align-self: flex-start; /* left align the button */
+      background-color: var(--yellow);
+      color: var(--black);
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .card .button:hover {
+      background-color: #e6c200;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="https://dr.moolamutondo.me/UnicornBraineryHome.html">
+    <img class="logo" src="https://d1yei2z3i6k35z.cloudfront.net/9855815/67aba51cbb0d0_Image08-02-2025at8.32PM.jpeg" alt="Unicorn Brainery Logo" />
+     </a>   
+      <div class="title-container">
+      <h1>Unicorn Brainery</h1>
+      <p>Unlocking Africa's Bioscience Potential</p>
+    </div>
+  </header>
+
+  <main>
+
+
+    <section>
+      <h2>Opportunities for Scientists & Innovators</h2>
+      <p>Explore fellowships and challenges aimed at empowering researchers across Africa and beyond.</p>
+      <p>If you really want supercharge your application, get mentorship now!</p>
+      <button onclick="window.location.href='https://dr.moolamutondo.me/UnicornBraineryHome.html'">✨ Help Me with my Application!</button>
+
+      <div class="card-container">
+
+        <div class="card">
+          <h3>🌍 OWSD Fellowship</h3>
+          <p>
+            Doctoral fellowships for early-career women scientists in Sub-Saharan Africa and LDCs. Five grantees receive US$5,000 and a trip to an international conference.<br><br>
+            <strong>Eligibility:</strong> Women scientists under 40 with MSc or exceptional BSc.<br><br>
+            <strong>Deadline:</strong> 31 August 2025
+          </p>
+          <a href="https://owsd.net/career-development/awards/owsd-early-career-fellowship" target="_blank" class="button">Apply Now</a>
+        </div>
+
+        <div class="card">
+          <h3>🚜 FAO Agri-Innovation Challenge</h3>
+          <p>
+            Youth teams (ages under 35) pitch digital solutions for agri-food distribution. Winners get US$30,000 seed funding.<br><br>
+            <strong>Team size:</strong> 2–5 members<br><br>
+            <strong>Deadline:</strong> 07 June 2025
+          </p>
+          <a href="https://www.fao.org/youth/innovators-challenge" target="_blank" class="button">Apply Now</a>
+        </div>
+
+        <div class="card">
+          <h3>🧠 Forrest Research Foundation</h3>
+          <p>
+            Postdoctoral fellowships for early-career researchers in all disciplines. Covers salary, housing, and travel for up to 3 years.<br><br>
+            <strong>Location:</strong> University of Western Australia<br><br>
+            <strong>Deadline:</strong> 30 June 2025
+          </p>
+          <a href="https://www.forrestresearch.org.au/fellowships/" target="_blank" class="button">Apply Now</a>
+        </div>
+
+        <div class="card">
+          <h3>🌱 APNI Phosphorus Fellowship</h3>
+          <p>
+            Awards US$5,000 to five early-career scientists working on phosphorus management in African agro-ecosystems.<br><br>
+            <strong>Host:</strong> African Plant Nutrition Institute<br><br>
+            <strong>Deadline:</strong> Not Specified
+          </p>
+          <a href="https://www.apni.net/phosphorus-fellowship/" target="_blank" class="button">Apply Now</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2025 Sunbird Sustainable Solutions. Empowering Africans to lead in bioscience.
+  </footer>
+
+</body>
+</html>
+
