@@ -171,6 +171,21 @@
       background-color: #e6c200;
     }
 
+    .express-interest-button {
+  background-color: #0077cc; 
+  color: white; 
+  padding: 10px 20px; 
+  box-shadow: 0 4px #005fa3;
+  
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.3s ease;
+}
+
+.express-interest-button:active {
+  transform: translateY(2px); 
+  box-shadow: 0 2px #005fa3; 
+  background-color: #0060ad;
+}
+
   </style>
 </head>
 <body>
@@ -250,10 +265,9 @@
           
     <p><strong>First, click below and you can express your interest in a specific opportunity:</strong></p>
         <a href="https://forms.gle/633TGB2GeZvTLo76A" 
-     style="display: inline-block; background-color: #0077cc; color: white; padding: 10px 20px; 
-            text-decoration: none; border-radius: 4px; font-weight: bold;">
+   class="button express-interest-button">
     Express Your Interest
-  </a>
+</a>
        <p>Then if there's a good fit, you'll be given a reference number that you can use to schedule a free discovery call.</p>
    
          
