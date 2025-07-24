@@ -5,76 +5,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Unicorn Brainery - Bioscience Career Consultancy</title>
   <style>
+    /* Brand Colors */
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --yellow: #FFD700; /* Gold yellow */
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      background-color: #fdf6ff;
-      color: #333;
+      background-color: var(--white);
+      color: var(--black);
     }
     header {
-      background:rgb(241, 245, 21);
-      color: white;
-      padding: 20px 10px;
-      text-align: center;
+      background: var(--black);
+      color: var(--white);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    header img.logo {
+      height: 60px;
+      width: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 8px var(--yellow);
+    }
+    header .title-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     header h1 {
       margin: 0;
       font-weight: 700;
       font-size: 2.4rem;
+      color: var(--yellow);
       letter-spacing: 1.5px;
     }
     header p {
-      margin: 5px 0 0;
-      font-size: 1.2rem;
+      margin: 3px 0 0;
+      font-size: 1.1rem;
       font-style: italic;
+      color: var(--white);
     }
+
     main {
       max-width: 900px;
-      margin: 20px auto;
-      padding: 0 15px;
+      margin: 25px auto;
+      padding: 0 20px;
     }
-    h2, h3, h4 {
-      color: #5a207d;
+    h2 {
+      color: var(--black);
+      border-bottom: 3px solid var(--yellow);
+      padding-bottom: 5px;
+    }
+    h3 {
+      color: var(--black);
+      margin-bottom: 8px;
     }
     ul {
       padding-left: 20px;
+      margin-top: 0;
+      margin-bottom: 20px;
     }
     blockquote {
-      border-left: 4px solid #7f3fbf;
+      border-left: 5px solid var(--yellow);
       margin: 20px 0;
-      padding-left: 15px;
+      padding-left: 18px;
       font-style: italic;
-      color: #554066;
-      background-color: #f7e9ff;
+      color: #555;
+      background-color: #fff8cc;
+      border-radius: 4px;
     }
     a.button {
       display: inline-block;
-      background-color: #7f3fbf;
-      color: white;
-      padding: 12px 24px;
+      background-color: var(--yellow);
+      color: var(--black);
+      padding: 12px 28px;
       margin-top: 15px;
       text-decoration: none;
-      border-radius: 4px;
-      font-weight: bold;
+      border-radius: 6px;
+      font-weight: 700;
       transition: background-color 0.3s ease;
     }
     a.button:hover {
-      background-color: #5a207d;
+      background-color: #e6c200;
+      color: var(--black);
     }
     footer {
       text-align: center;
-      padding: 15px 10px;
-      margin-top: 40px;
-      color: #777;
-      font-size: 0.9rem;
+      padding: 18px 10px;
+      margin-top: 50px;
+      color: #444;
+      font-size: 0.95rem;
+      background-color: #f5f5f5;
+      border-top: 1px solid var(--yellow);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      header {
+        justify-content: center;
+        gap: 10px;
+        text-align: center;
+      }
+      header .title-container {
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Unicorn Brainery</h1>
-    <p>Unlocking Africa's Bioscience Potential</p>
+    <img class="logo" src="https://d1yei2z3i6k35z.cloudfront.net/9855815/687ff2a73db8d_Image22-07-2025at10.09PM.png" alt="Unicorn Brainery Logo" />
+    <div class="title-container">
+      <h1>Unicorn Brainery</h1>
+      <p>Unlocking Africa's Bioscience Potential</p>
+    </div>
   </header>
 
   <main>
@@ -144,7 +195,10 @@
         <li>Join our upcoming webinars and skills workshops.</li>
         <li>Subscribe to our newsletter for expert tips and opportunity alerts.</li>
       </ul>
-      <a href="#" class="button">Contact us today. Your future in bioscience begins here.</a>
+     <button style="background-color: #fdd835; color: black; padding: 12px 24px; border: none; border-radius: 6px; font-size: 16px; cursor: pointer;"
+  onclick="window.location.href='https://mailchi.mp/a79b26ef9fdc/mutondo-astrobiology-lab-newsletter-signup'">✨ Subscribe to Astrobiolab Updates
+</button>
+
     </section>
   </main>
 
@@ -154,4 +208,3 @@
 
 </body>
 </html>
-
