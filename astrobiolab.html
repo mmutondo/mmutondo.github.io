@@ -1,15 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Astrobiology Lab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   <style>
-    
     .gold-button {
       background-color: gold;
       border: none;
@@ -33,12 +33,12 @@
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       background: black;
       color: white;
-      overflow-x: hidden; /* hide scrollbars caused by animated stars */
+      overflow-x: hidden; /* hide horizontal scrollbars caused by stars */
       position: relative;
       min-height: 100vh;
     }
 
-    /* Stars background container */
+    /* Stars background */
     .star {
       position: absolute;
       background: white;
@@ -47,7 +47,7 @@
       animation-name: twinkle;
       animation-timing-function: ease-in-out;
       animation-iteration-count: infinite;
-      pointer-events: none; /* stars won't block mouse interactions */
+      pointer-events: none;
     }
 
     @keyframes twinkle {
@@ -55,7 +55,6 @@
       50% { opacity: 0.2; }
     }
 
-    /* Main content container is layered above stars */
     .main-content {
       position: relative;
       z-index: 10;
@@ -131,21 +130,86 @@
       margin-bottom: 0.6rem;
     }
 
+    /* People section with two columns */
     .people-list {
       display: flex;
       gap: 2rem;
       flex-wrap: wrap;
-      margin-top: 1rem;
     }
-    .person {
-      flex: 1 0 160px;
+
+    /* Left column for Dr Moola Mutondo */
+    .people-left {
+      flex: 1 1 45%;
       background: #222;
       border-radius: 6px;
       padding: 1rem;
       color: white;
-      margin-bottom: 1rem;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
+
+    /* Right column for other people */
+    .people-right {
+      flex: 1 1 45%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .person {
+      background: #222;
+      border-radius: 6px;
+      padding: 1rem;
+      color: white;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .person img {
+      border-radius: 0;
+      border: 2px solid white; /* optional visible border */
+      background: #333;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Dr Moola Mutondo's image twice as big */
+    .people-left img {
+      width: 160px;  /* Twice the normal size */
+      height: 160px;
+      margin-bottom: 1rem;
+    }
+    /* Other people images at base size */
+    .people-right .person img {
+      width: 80px;
+      height: 80px;
+    }
+
+    /* Person Name Links */
+    .person a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.2s;
+    }
+    .person a:hover {
+      color: gold;
+      text-decoration: underline;
+    }
+
+    /* Person info container for text to wrap nicely with image */
+    .person-info {
+      flex: 1;
+      text-align: left;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
       padding: 1.5rem 0;
@@ -160,48 +224,27 @@
       border-radius: 8px;
     }
 
-    /* Responsive for small screens */
-    @media (max-width:600px) {
-      .main-content {
-        padding: 1rem;
-        margin: 1.5rem auto 3rem auto;
-      }
+    /* Responsive styles */
+    @media (max-width: 700px) {
       .people-list {
         flex-direction: column;
-        gap: 1rem;
       }
-      nav {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-        border-radius: 8px;
+      .people-left,
+      .people-right {
+        flex: 1 1 100%;
+      }
+      .people-left img {
+        width: 120px;
+        height: 120px;
+      }
+      .people-right .person img {
+        width: 60px;
+        height: 60px;
+      }
+      .person-info {
+        text-align: center;
       }
     }
-
-        header img.logo {
-        width: 200px; /* 20% of original 60px */
-        height: 200px;
-        border-radius: 25%;
-        object-fit: cover;
-        display: block;
-        margin-bottom: 0.5rem;
-
-    }
-
-     header {
-     display: flex;
-     flex-direction: column;
-     align-items: center; /* centers children horizontally */
-    background: #111;
-    padding: 1.5rem 2rem;
-    border-bottom: 2px solid #222;
-    border-radius: 8px 8px 0 0;
-    margin-bottom: 1rem;
-    }
-
-
-
-    
   </style>
 </head>
 <body>
@@ -292,23 +335,34 @@
       </ul>
     </section>
 
-    <section id="people">
+     <section id="people">
       <h2>People</h2>
       <div class="people-list">
-        <div class="person">
+        <!-- Left Column: Dr Moola Mutondo -->
+        <div class="people-left person">
           <img src="https://dr.moolamutondo.me/images/moola pink.png" alt="Dr. Moola Mutondo" />
-            <strong>Dr Moola Mutondo </strong>
-            <p> PI & Senior Lecturer </p>
-            </div>
-        <div class="person">
-          <img src="https://dr.moolamutondo.me/images/eppies.jpg" alt="Postgraduate Students" />
-          <strong>Postgraduate Students</strong>
-          <p>MSc and PhD</p>
+          <div class="person-info">
+            <a href="https://connect.moolamutondo.m/research" target="_blank" rel="noopener noreferrer">Dr Moola Mutondo</a>
+            <p>PI & Senior Lecturer</p>
+          </div>
         </div>
-        <div class="person">
-          <img src="https://dr.moolamutondo.me/images/Moola and the bangweulu group.jpeg" alt="Undergraduate Students" />
-          <strong>Undergraduate Students</strong>
-          <p>BSc Students</p>
+
+        <!-- Right Column: Other people -->
+        <div class="people-right">
+          <div class="person">
+            <img src="https://dr.moolamutondo.me/images/eppies.jpg" alt="Postgraduate Students" />
+            <div class="person-info">
+              <a href="http://example.com" target="_blank" rel="noopener noreferrer">Postgraduate Students</a>
+              <p>MSc and PhD</p>
+            </div>
+          </div>
+          <div class="person">
+            <img src="https://dr.moolamutondo.me/images/Moola and the bangweulu group.jpeg" alt="Undergraduate Students" />
+            <div class="person-info">
+              <a href="http://example.com" target="_blank" rel="noopener noreferrer">Undergraduate Students</a>
+              <p>BSc Students</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
