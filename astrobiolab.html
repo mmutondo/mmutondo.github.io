@@ -66,13 +66,23 @@
       box-shadow: 0 2px 12px #0009;
     }
 
-    header {
-      background: #111;
-      padding: 2rem 0 1rem 0;
-      text-align: center;
-      border-bottom: 2px solid #222;
-      margin-bottom: 1rem;
-      border-radius: 8px 8px 0 0;
+     header img.logo {
+        width: 200px; /* 20% of original 60px */
+        height: 200px;
+        border-radius: 25%;
+        object-fit: cover;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+      header {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* centers children horizontally */
+        background: #111;
+        padding: 1.5rem 2rem;
+        border-bottom: 2px solid #222;
+        border-radius: 8px 8px 0 0;
+        margin-bottom: 1rem;
     }
     header h1 {
       color: white;
@@ -244,23 +254,7 @@
       .person-info {
         text-align: center;
       }
-      header img.logo {
-        width: 200px; /* 20% of original 60px */
-        height: 200px;
-        border-radius: 25%;
-        object-fit: cover;
-        display: block;
-        margin-bottom: 0.5rem;
-      }
-      header {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* centers children horizontally */
-        background: #111;
-        padding: 1.5rem 2rem;
-        border-bottom: 2px solid #222;
-        border-radius: 8px 8px 0 0;
-        margin-bottom: 1rem;
+ 
     }
   </style>
 </head>
