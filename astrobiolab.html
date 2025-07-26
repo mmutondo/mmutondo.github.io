@@ -89,6 +89,19 @@
       flex-shrink: 0;
     }
 
+    .banner-image-container {
+      width: 100%;
+      height: 250px; /* choose desired banner height */
+      overflow: hidden;
+    }
+
+    .banner-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* cover fills container fully, cropping if needed */
+      display: block;
+    }
+
     header div {
       flex-grow: 1;
       color: white;
@@ -324,13 +337,21 @@
 
     <div class="main-content">
 
-          <header>
-  <img class="logo" src="Bigbluedot.jpg" alt="Big Blue Dot Logo" />
-  <div>
+
+  <header>
+    <div class="banner-image-container">
+      <img
+        class="banner-image"
+        src="https://dr.moolamutondo.me/images/Bigbluedot.jpg"
+        alt="Mutondo Astrobiology Banner"
+      />
+    </div>
     <h1>Mutondo Astrobiology Laboratory</h1>
-    <p>Exploring Life in the Universe and Beyond</p>
-  </div>
-    </header>
+  </header>
+
+  <!-- Your page rest of content -->
+</body>
+
 
     <nav>
       <a href="#about">About</a>
