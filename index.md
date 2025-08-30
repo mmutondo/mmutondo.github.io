@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Home
-meta name="p:domain_verify" content="c82f538c1409d3c7c3534eb4e0ae2a9c"
+
 ---
 
 
