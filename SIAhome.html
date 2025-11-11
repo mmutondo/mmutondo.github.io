@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BioCareer Catalyst - AI-Powered Biology Career Assistant</title>
+  <link rel="icon" href="https://dr.moolamutondo.me/android-chrome-512x512.png" type="image/png" />
+
+  <style>
+    /* Brand Colors */
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --yellow: #FFD700; /* Gold yellow */
+      --light-yellow: #fff8cc;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+    }
+    
+    header {
+      background: var(--black);
+      color: var(--white);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    
+    header img.logo {
+      height: 60px;
+      width: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 8px var(--yellow);
+    }
+    
+    header .title-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 2.4rem;
+      color: var(--yellow);
+      letter-spacing: 1.5px;
+    }
+    
+    header p {
+      margin: 3px 0 0;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--white);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--black) 0%, #333 100%);
+      color: var(--white);
+      padding: 80px 20px;
+      text-align: center;
+    }
+    
+    .hero h2 {
+      font-size: 2.8rem;
+      margin: 0 0 20px 0;
+      color: var(--yellow);
+      border: none;
+    }
+    
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background-color: var(--yellow);
+      color: var(--black);
+      padding: 16px 35px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    }
+    
+    .cta-button:hover {
+      background-color: #e6c200;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    section {
+      margin: 60px 0;
+    }
+    
+    h2 {
+      color: var(--black);
+      border-bottom: 3px solid var(--yellow);
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+    }
+    
+    h3 {
+      color: var(--black);
+      margin-bottom: 15px;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin: 30px 0;
+    }
+    
+    .feature-card {
+      background: var(--white);
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .process-steps {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 40px 0;
+      text-align: center;
+    }
+    
+    .step {
+      flex: 1;
+      min-width: 200px;
+      margin: 10px;
+      padding: 20px;
+    }
+    
+    .step-number {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background: var(--yellow);
+      color: var(--black);
+      border-radius: 50%;
+      line-height: 50px;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .testimonials {
+      background-color: #f9f9f9;
+      padding: 40px;
+      border-radius: 10px;
+      margin: 40px 0;
+    }
+    
+    .testimonial {
+      margin-bottom: 25px;
+      padding: 20px;
+      background: var(--white);
+      border-radius: 8px;
+      border-left: 5px solid var(--yellow);
+    }
+    
+    .testimonial-author {
+      font-weight: bold;
+      color: #555;
+      margin-top: 10px;
+    }
+    
+    .faq-item {
+      margin-bottom: 20px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      background: #f5f5f5;
+      padding: 15px 20px;
+      margin: 0;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    
+    .faq-answer {
+      padding: 20px;
+      margin: 0;
+    }
+    
+    .final-cta {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, var(--black) 0%, #333 100%);
+      color: var(--white);
+      border-radius: 10px;
+      margin: 60px 0;
+    }
+    
+    .final-cta h2 {
+      color: var(--yellow);
+      border: none;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 18px 10px;
+      margin-top: 50px;
+      color: #444;
+      font-size: 0.95rem;
+      background-color: #f5f5f5;
+      border-top: 1px solid var(--yellow);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      header {
+        justify-content: center;
+        gap: 10px;
+        text-align: center;
+      }
+      
+      header .title-container {
+        align-items: center;
+      }
+      
+      .hero h2 {
+        font-size: 2rem;
+      }
+      
+      .process-steps {
+        flex-direction: column;
+      }
+      
+      .step {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img class="logo" src="https://dr.moolamutondo.me/images/Sunbird Innovation Agency pic.png" alt="Sunbird IA Logo" />
+    <div class="title-container">
+      <h1>Sunbird Innovation Agency</h1>
+      <p>Unlocking Africa's Bioscience Potential</p>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h2>Supercharge Your Biology Career Journey</h2>
+    <p>Get instant, expert guidance on research, CVs, and career paths. Powered by AI.</p>
+    <a href="https://chatgpt.com/g/g-68f54b49e5548191b6705ed245f009eb-biocareer-catalyst-lite" class="cta-button">🚀 Try BioCareer Catalyst Lite - It's Free</a>
+  </div>
+
+  <main>
+    <section id="problem-solution">
+      <h2>Struggling to Navigate Your Biology Career?</h2>
+      <p>Between complex research proposals, competitive internship applications, and crafting the perfect CV, it's easy to feel lost. You have the passion, but you need a guide—someone to answer your questions 24/7 and help you build a standout profile.</p>
+      <p><strong>What if you had a personal career assistant, always on call?</strong></p>
+    </section>
+
+    <section id="product">
+      <h2>Your AI-Powered Biology Career Assistant</h2>
+      <p>BioCareer Catalyst Lite is a specialized AI tool designed specifically for biology students like you. It provides instant, tailored advice to help you succeed.</p>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h3>Research & Proposal Guidance</h3>
+          <p>Get help structuring your ideas and writing compelling research proposals that stand out.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">💼</div>
+          <h3>CV & Cover Letter Review</h3>
+          <p>Polish your application documents to impress employers, programs, and scholarship committees.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Career Path Exploration</h3>
+          <p>Discover potential career options in biology you haven't even considered yet.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">💡</div>
+          <h3>Interview Preparation</h3>
+          <p>Practice answering common and technical interview questions with expert feedback.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">⏱️</div>
+          <h3>24/7 Instant Access</h3>
+          <p>Get help whenever inspiration strikes or deadlines loom—no appointment needed.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🌍</div>
+          <h3>Africa-Focused Advice</h3>
+          <p>Guidance tailored to the unique opportunities and challenges in African biosciences.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <h2>How It Works</h2>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Click & Go</h3>
+          <p>Click the link below to open the GPT in ChatGPT.</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Ask Your Question</h3>
+          <p>Describe your challenge. e.g., "Help me outline a research proposal on marine biodiversity."</p>
+        </div>
+        
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Get Expert Advice</h3>
+          <p>Receive instant, structured feedback and suggestions to move forward.</p>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 30px;">
+        <a href="https://chatgpt.com/g/g-68f54b49e5548191b6705ed245f009eb-biocareer-catalyst-lite" class="cta-button">Start Using BioCareer Catalyst Lite</a>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <h2>Trusted by Ambitious Biology Students</h2>
+      <div class="testimonials">
+        <div class="testimonial">
+          <p>"This GPT helped me reorganize my CV and I landed an interview the following week! It was like having a mentor in my pocket."</p>
+          <div class="testimonial-author">- Sarah, 3rd Year Biology Student</div>
+        </div>
+        
+        <div class="testimonial">
+          <p>"I was stuck on my research methodology. The Catalyst gave me clear, actionable ideas that my professor loved."</p>
+          <div class="testimonial-author">- David, MSc Candidate</div>
+        </div>
+        
+        <div class="testimonial">
+          <p>"As an international student from Zambia, this tool helped me navigate the complex application process for European scholarships."</p>
+          <div class="testimonial-author">- Chanda, Recent Graduate</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      
+      <div class="faq-item">
+        <h3 class="faq-question">Do I need a ChatGPT Plus subscription?</h3>
+        <div class="faq-answer">
+          <p>Yes, BioCareer Catalyst Lite is a GPT that requires ChatGPT Plus. It's a powerful upgrade for your entire academic and professional life, giving you access to all GPTs and advanced AI models.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <h3 class="faq-question">Is the GPT really free to use?</h3>
+        <div class="faq-answer">
+          <p>Yes! The GPT itself is completely free. You only need the ChatGPT Plus subscription from OpenAI, which gives you access to our GPT and many others.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <h3 class="faq-question">How is this different from regular ChatGPT?</h3>
+        <div class="faq-answer">
+          <p>BioCareer Catalyst Lite is specifically fine-tuned for biology careers. It understands the jargon, the standards, and the unique challenges you face, providing more relevant and accurate help than a general AI. It's like having a career advisor who specializes in biosciences.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <h3 class="faq-question">Can it help with African-specific opportunities?</h3>
+        <div class="faq-answer">
+          <p>Absolutely! Our GPT is trained with knowledge about opportunities, challenges, and contexts specific to African bioscience students and professionals.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <h2>Ready to Build a Brighter Future in Biology?</h2>
+      <p style="font-size: 1.2rem; margin-bottom: 30px;">Stop getting stuck. Start getting ahead. Your AI career assistant is waiting.</p>
+      <a href="https://chatgpt.com/g/g-68f54b49e5548191b6705ed245f009eb-biocareer-catalyst-lite" class="cta-button">✨ Start Using BioCareer Catalyst Lite Now</a>
+      <p style="margin-top: 20px; opacity: 0.9;">or <a href="https://dr.moolamutondo.me/about" style="color: var(--yellow);">learn more about our mission</a></p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Sunbird Innovation Agency 💫 Sunbird Sustainable Solutions. Empowering Africans to lead in bioscience.
+  </footer>
+
+</body>
+</html>
