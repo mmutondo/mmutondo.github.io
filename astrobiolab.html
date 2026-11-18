@@ -271,6 +271,33 @@
       }
     }
 
+    /* Group names (not links) and opportunities card */
+    .group-name {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .opportunities-card {
+      border: 2px solid gold;
+    }
+    .opp-icon {
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.6rem;
+      background: #333;
+      border: 2px solid white;
+    }
+    @media (max-width: 700px) {
+      .opp-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+      }
+    }
+
     /* Sunbird section */
     .sunbird {
       background: #1a1a1a;
@@ -417,15 +444,22 @@
           <div class="person">
             <img src="https://dr.moolamutondo.me/images/eppies.jpg" alt="Postgraduate Students" />
             <div class="person-info">
-              <a href="mailto:moola.mutondo@cbu.ac.zm?subject=Joining%20the%20lab%20as%20a%20postgraduate">Postgraduate Students</a>
-              <p>MSc and PhD. Interested in joining? Email me.</p>
+              <span class="group-name">Postgraduate Students</span>
+              <p>MSc and PhD researchers</p>
             </div>
           </div>
           <div class="person">
             <img src="https://dr.moolamutondo.me/BSc Students Bangweulu1.jpg" alt="Undergraduate Students" />
             <div class="person-info">
-              <a href="mailto:moola.mutondo@cbu.ac.zm?subject=Undergraduate%20project%20in%20the%20lab">Undergraduate Students</a>
-              <p>BSc students. Looking for a project? Email me.</p>
+              <span class="group-name">Undergraduate Students</span>
+              <p>BSc research projects</p>
+            </div>
+          </div>
+          <div class="person opportunities-card">
+            <div class="opp-icon" aria-hidden="true">&#128301;</div>
+            <div class="person-info">
+              <a href="https://dr.moolamutondo.me/lab-opportunities.html">Current Opportunities in the Lab &rarr;</a>
+              <p>Open positions and projects, when available</p>
             </div>
           </div>
         </div>
