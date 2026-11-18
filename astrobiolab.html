@@ -269,7 +269,46 @@
       .person-info {
         text-align: center;
       }
-      
+    }
+
+    /* Sunbird section */
+    .sunbird {
+      background: #1a1a1a;
+      border: 2px solid gold;
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+    .sunbird img {
+      max-width: 180px;
+      width: 60%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 12px #D4AF37;
+      margin-bottom: 1rem;
+    }
+    .sunbird h2 {
+      color: gold;
+      border-bottom: none;
+    }
+    .sunbird ul {
+      text-align: left;
+      max-width: 520px;
+      margin: 1rem auto;
+      padding-left: 0;
+    }
+    .sunbird ul li::before {
+      content: "\2726  ";
+      color: gold;
+    }
+    .sunbird .tagline {
+      font-weight: bold;
+      margin: 1.2rem 0;
+    }
+    a.gold-button {
+      display: inline-block;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -295,11 +334,11 @@
   <div class="star" style="width:6px; height:1px; top:159vh; left:60vw; animation-duration:13.0s; animation-delay:1.7s;"></div>
   <div class="star" style="width:13px; height:5px; top:174vh; left:19vw; animation-duration:2.2s; animation-delay:2.0s;"></div>
   <div class="star" style="width:1.5px; height:1.5px; top:40vh; left:55vw; animation-duration:7.8s; animation-delay:9.4s;"></div>
-  <div class="star" style="width:2px; height:2x; top:140vh; left:100vw; animation-duration:5.6s; animation-delay:2.8s;"></div>
+  <div class="star" style="width:2px; height:2px; top:140vh; left:100vw; animation-duration:5.6s; animation-delay:2.8s;"></div>
   <div class="star" style="width:3px; height:2px; top:77.1vh; left:79vw; animation-duration:3.8s; animation-delay:3.3s;"></div>
   <div class="star" style="width:1px; height:1px; top:37vh; left:83.5vw; animation-duration:3.7s; animation-delay:1.3s;"></div>
   <div class="star" style="width:3px; height:3px; top:60.4vh; left:7.4vw; animation-duration:5.2s; animation-delay:3.4s;"></div>
-  <div class="star" style="width:5px; height:3§px; top:64vh; left:89vw; animation-duration:7.5s; animation-delay:2.3s;"></div>
+  <div class="star" style="width:5px; height:3px; top:64vh; left:89vw; animation-duration:7.5s; animation-delay:2.3s;"></div>
   <div class="star" style="width:4px; height:2px; top:50vh; left:70vw; animation-duration:2.7s; animation-delay:1.1s;"></div>
   <div class="star" style="width:2px; height:2px; top:20vh; left:15vw; animation-duration:3.4s; animation-delay:0.9s;"></div>
   <div class="star" style="width:2px; height:1px; top:111vh; left:10vw; animation-duration:3.3s; animation-delay:3.7s;"></div>
@@ -318,8 +357,6 @@
   <div class="star" style="width:3.5px; height:3.5px; top:190vh; left:15vw; animation-duration:3.6s; animation-delay:2.8s;"></div>
 
 
-  <!-- Add more stars with similar inline styles to reach about 80 total -->
-  <!-- For brevity, I’m including 10 here only but you can duplicate to increase stars coverage -->
 
   <header>
     <div class="header">
@@ -343,6 +380,7 @@
       <a href="#research">Research</a>
       <a href="#people">People</a>
       <a href="#contact">Contact</a>
+      <a href="#sunbird">Sunbird</a>
     </nav>
 
     <section id="about">
@@ -355,11 +393,10 @@
     <section id="research">
       <h2>Research</h2>
       <ul>
-        <li>Origin of Life</li>
-        <li>Martian Analogues</li>
-        <li>Characterisation of natural African extreme environments</li>
+        <li>Natural African extreme environments</li>
         <li>Anthropogenic environments as analogues for extraterrestrial habitats</li>
         <li>Biotechnology of extremophiles</li>
+        <li>Origins</li>
       </ul>
     </section>
 
@@ -370,8 +407,8 @@
         <div class="people-left person">
           <img src="https://dr.moolamutondo.me/images/moola pink.png" alt="Dr. Moola Mutondo" />
           <div class="person-info">
-            <a href="https://connect.moolamutondo.m/research" target="_blank" rel="noopener noreferrer">Dr Moola Mutondo</a>
-            <p>PI & Senior Lecturer</p>
+            <a href="https://connect.moolamutondo.me/research" target="_blank" rel="noopener noreferrer">Dr Moola Mutondo</a>
+            <p>Group Lead</p>
           </div>
         </div>
 
@@ -380,15 +417,15 @@
           <div class="person">
             <img src="https://dr.moolamutondo.me/images/eppies.jpg" alt="Postgraduate Students" />
             <div class="person-info">
-              <a href="http://example.com" target="_blank" rel="noopener noreferrer">Postgraduate Students</a>
-              <p>MSc and PhD</p>
+              <a href="mailto:moola.mutondo@cbu.ac.zm?subject=Joining%20the%20lab%20as%20a%20postgraduate">Postgraduate Students</a>
+              <p>MSc and PhD. Interested in joining? Email me.</p>
             </div>
           </div>
           <div class="person">
             <img src="https://dr.moolamutondo.me/BSc Students Bangweulu1.jpg" alt="Undergraduate Students" />
             <div class="person-info">
-              <a href="http://example.com" target="_blank" rel="noopener noreferrer">Undergraduate Students</a>
-              <p>BSc Students</p>
+              <a href="mailto:moola.mutondo@cbu.ac.zm?subject=Undergraduate%20project%20in%20the%20lab">Undergraduate Students</a>
+              <p>BSc students. Looking for a project? Email me.</p>
             </div>
           </div>
         </div>
@@ -397,79 +434,33 @@
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:moola@moolamutondo.me" style="color:#fff; text-decoration:underline;">moola@moolamutondo.me</a></p>
-      <p>Dept. of Biological Sciences, SMNS,The Copperbelt University, Jambo Drive, Kitwe, Zambia</p>
+      <p><strong>Research collaborations and student enquiries:</strong> <a href="mailto:moola.mutondo@cbu.ac.zm" style="color:#fff; text-decoration:underline;">moola.mutondo@cbu.ac.zm</a></p>
+      <p><strong>Coaching, application reviews, speaking and other services:</strong> <a href="mailto:moola@moolamutondo.me" style="color:#fff; text-decoration:underline;">moola@moolamutondo.me</a></p>
+      <p>Dept. of Biological Sciences, SMNS, The Copperbelt University, Jambo Drive, Kitwe, Zambia</p>
     </section>
 
 
-    <section>
-      <p>Subscribe to our newsletter and never miss out in Astrobiology News</p>
-      
-          <button class="gold-button" onclick="window.location.href='https://mailchi.mp/67bffee3fdc3/extremosphere'">
-  Subscribe to Extremosphere
-</button>
-      <p> </p>
-       <p> </p>
-
-    <section>
-        <h2>Sunbird Innovation Agency</h2>
+    <section id="newsletter">
+      <h2>Extremosphere</h2>
+      <p>A free newsletter on astrobiology, the origins of life, the future of humanity and everything in between.</p>
+      <a class="gold-button" href="https://mailchi.mp/67bffee3fdc3/extremosphere">Subscribe to Extremosphere</a>
     </section>
 
-    <section>
-        <section id="sunbird-innovation-agency" class="intro-wrap" aria-label="Sunbird Innovation Agency Career Message">
-            <a href="https://dr.moolamutondo.me/SIA.html">
-                <img src="http://dr.moolamutondo.me/images/picmoola.png" alt="Moola logo" style="width: 25%; height: auto;" />
-                </a>
-        
-            <p>What if it was easy to get empowered as a student or young professionals with the advice you need?</p>
-            <p>What if you could reboot your academic career at 40 or 50 or even later using new skills and tech?</p>
-            <p>What if the mentorship needed to unlock world-class opportunities in the biosciences was just a click away?</p>
-          
-            <p>Dr Moola Mutondo founded Sunbird Innovation Agency to answer all these questions. What is Sunbird Innovation Agency? It is your trusted partner in building a thriving bioscience career in Africa.</p> 
-              <p style="font-size: 30px;">🤔</p>
-             <b><p>✨ Its never too late to become who you could have been ✨ </p></b>
-             
-          
-        <button class="gold-button" onclick="window.location.href='https://dr.moolamutondo.me/SIA.html'">
-  Go to Sunbird Innovation Agency
-</button>
+    <section id="sunbird" class="sunbird">
+      <a href="https://dr.moolamutondo.me/SIA.html">
+        <img src="https://dr.moolamutondo.me/images/Sunbird Innovation Agency pic.png" alt="Sunbird Innovation Agency logo" />
+      </a>
+      <h2>Need help with your science career?</h2>
+      <p>Students and colleagues often ask me for help with scholarships, CVs, grants and the hard parts of academic life. Through Sunbird Innovation Agency, I now offer that help properly:</p>
+      <ul>
+        <li>Application reviews for CVs, scholarships, fellowships and grants</li>
+        <li>Small-group application clinics</li>
+        <li>Private career coaching for mid and late career academics</li>
+        <li>The Free Lunch Club: a monthly box of opportunities I have checked</li>
+      </ul>
+      <p class="tagline">&#10024; It's never too late to become who you could have been &#10024;</p>
+      <a class="gold-button" href="https://dr.moolamutondo.me/SIA.html">See how I can help &rarr;</a>
     </section>
-
-
-
-
-    <section id="sunbird-innovation-agency" style="padding: 40px 20px; background-color: #f9f9f9;">
-         <div style="max-width: 960px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 30px;">
-          <!-- Column 1: Logo image -->
-          <div style="flex: 1 1 300px; text-align: center;">
-            <img 
-              src="https://dr.moolamutondo.me/images/Sunbird Innovation Agency pic.png" 
-              alt="SIA Logo" 
-              style="max-width: 280px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 0 12px #D4AF37;"
-            />
-          </div>
-      
-          <!-- Column 2: Bullet points -->
-          <div style="flex: 1 1 300px; color: #005050; font-family: Arial, sans-serif;">
-            <h2 style="color: #D4AF37; margin-bottom: 16px;">Why Choose Sunbird Innovation Agency?</h2>
-            <ul style="list-style-type: disc; padding-left: 20px; font-size: 1.1rem; line-height: 1.6;">
-              <li>Empowering African bioscience researchers with expert career consultancy.</li>
-              <li>Tailored mentorship for growth in bioscience innovation.</li>
-              <li>Connection to cutting-edge research projects and collaboration opportunities.</li>
-              <li>Support for skill-building in research, publishing, and communication.</li>
-              <li>Focus on creating impactful scientific careers and breakthroughs.</li>
-            </ul>
-          </div>
-        </div>
-    </section>
-
-    <section id="Get Started">
-
-    </section>
-
-   
-      
-
   </div>
 
   <footer>

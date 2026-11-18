@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Is Coaching Right for You? - Sunbird Innovation Agency</title>
+  <meta name="description" content="Private career coaching with Dr Moola Mutondo for mid and late career academics. Answer a few questions to see if coaching is the right next step." />
+  <link rel="icon" href="https://dr.moolamutondo.me/android-chrome-512x512.png" type="image/png" />
+
+  <style>
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --yellow: #FFD700;
+      --light-yellow: #fff8cc;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--black);
+      color: var(--white);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    header img.logo {
+      height: 60px;
+      width: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 8px var(--yellow);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: var(--yellow);
+      letter-spacing: 1.5px;
+    }
+
+    header p {
+      margin: 3px 0 0;
+      font-style: italic;
+    }
+
+    header a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--black) 0%, #333 100%);
+      color: var(--white);
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2.4rem;
+      margin: 0 0 15px;
+      color: var(--yellow);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+
+    section {
+      margin: 45px 0;
+    }
+
+    h2 {
+      border-bottom: 3px solid var(--yellow);
+      padding-bottom: 10px;
+    }
+
+    .info-box {
+      background: #f9f9f9;
+      border-left: 5px solid var(--yellow);
+      border-radius: 8px;
+      padding: 20px 25px;
+    }
+
+    .info-box ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+    }
+
+    fieldset {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 20px 25px;
+      margin: 0 0 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+
+    legend {
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 0 8px;
+    }
+
+    .q-number {
+      display: inline-block;
+      background: var(--yellow);
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      line-height: 28px;
+      text-align: center;
+      margin-right: 6px;
+      font-size: 0.95rem;
+    }
+
+    label.option {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    label.option:hover {
+      background: var(--light-yellow);
+    }
+
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+
+    .field {
+      margin-bottom: 15px;
+    }
+
+    .field label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"], input[type="email"], textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+
+    textarea {
+      min-height: 110px;
+    }
+
+    #answers-text {
+      min-height: 280px;
+      background: var(--white);
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: var(--yellow);
+      color: var(--black);
+      padding: 14px 32px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .cta-button:hover {
+      background-color: #e6c200;
+    }
+
+    .error {
+      color: #b00020;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    #result {
+      display: none;
+      border-radius: 10px;
+      padding: 30px;
+      margin-top: 30px;
+    }
+
+    #result.ready {
+      background: var(--light-yellow);
+      border: 2px solid var(--yellow);
+    }
+
+    #result.not-yet {
+      background: #f5f5f5;
+      border: 2px solid #ccc;
+    }
+
+    #result h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+
+    .small {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 18px 10px;
+      margin-top: 30px;
+      color: #444;
+      font-size: 0.95rem;
+      background-color: #f5f5f5;
+      border-top: 1px solid var(--yellow);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        justify-content: center;
+        gap: 10px;
+        text-align: center;
+      }
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="https://dr.moolamutondo.me/SIA.html">
+      <img class="logo" src="https://dr.moolamutondo.me/images/Sunbird Innovation Agency pic.png" alt="Sunbird Innovation Agency logo" />
+    </a>
+    <div>
+      <h1><a href="https://dr.moolamutondo.me/SIA.html">Sunbird Innovation Agency</a></h1>
+      <p>Unlocking Africa's Bioscience Potential</p>
+    </div>
+  </header>
+
+  <div class="hero">
+    <h2>Is private coaching right for you?</h2>
+    <p>Private career coaching with Dr Moola Mutondo is for academics facing a real decision or a hard situation. Answer six short questions to see if coaching is the right next step, or if another option would serve you better.</p>
+  </div>
+
+  <main>
+    <section>
+      <h2>About private coaching</h2>
+      <div class="info-box">
+        <p><strong>K550 per 60-minute session.</strong> Confidential, one-to-one, online or in person on the Copperbelt.</p>
+        <p>Coaching works best for:</p>
+        <ul>
+          <li>Preparing for promotion</li>
+          <li>Navigating conflict or a difficult department</li>
+          <li>Stepping into a leadership role</li>
+          <li>Planning a career change or your next chapter</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Six questions</h2>
+      <form id="readiness-form" novalidate>
+
+        <fieldset>
+          <legend><span class="q-number">1</span>Where are you in your career?</legend>
+          <label class="option"><input type="radio" name="stage" value="student" />Student (undergraduate, MSc or PhD)</label>
+          <label class="option"><input type="radio" name="stage" value="early" />Early career (postdoc, or within about 5 years of my PhD)</label>
+          <label class="option"><input type="radio" name="stage" value="mid" />Mid career (lecturer or senior lecturer)</label>
+          <label class="option"><input type="radio" name="stage" value="senior" />Senior (associate professor, professor or head of department)</label>
+          <label class="option"><input type="radio" name="stage" value="transition" />I have left academia or I am planning to</label>
+        </fieldset>
+
+        <fieldset>
+          <legend><span class="q-number">2</span>What do you most want help with?</legend>
+          <label class="option"><input type="radio" name="need" value="promotion" />Promotion or my long-term career direction</label>
+          <label class="option"><input type="radio" name="need" value="conflict" />Conflict or a difficult situation in my department</label>
+          <label class="option"><input type="radio" name="need" value="leadership" />A leadership role, new or coming up</label>
+          <label class="option"><input type="radio" name="need" value="change" />A career change or planning my next chapter</label>
+          <label class="option"><input type="radio" name="need" value="application" />A specific application, CV or grant</label>
+          <label class="option"><input type="radio" name="need" value="opportunities" />Finding scholarships, fellowships or other opportunities</label>
+        </fieldset>
+
+        <fieldset>
+          <legend><span class="q-number">3</span>How clear is your situation?</legend>
+          <label class="option"><input type="radio" name="clarity" value="2" />I can describe a specific situation and what I want to change</label>
+          <label class="option"><input type="radio" name="clarity" value="1" />I have a general sense, but it is not fully clear yet</label>
+          <label class="option"><input type="radio" name="clarity" value="0" />I'm not sure what I need</label>
+        </fieldset>
+
+        <fieldset>
+          <legend><span class="q-number">4</span>Between sessions, are you ready to act on the steps we agree?</legend>
+          <label class="option"><input type="radio" name="commitment" value="2" />Yes, I'm ready to put in the work</label>
+          <label class="option"><input type="radio" name="commitment" value="1" />Probably, depending on my workload</label>
+          <label class="option"><input type="radio" name="commitment" value="0" />I'd rather someone did it for me</label>
+        </fieldset>
+
+        <fieldset>
+          <legend><span class="q-number">5</span>Are you comfortable investing K550 per session?</legend>
+          <label class="option"><input type="radio" name="budget" value="yes" />Yes</label>
+          <label class="option"><input type="radio" name="budget" value="maybe" />I need to think about it</label>
+          <label class="option"><input type="radio" name="budget" value="no" />Not at the moment</label>
+        </fieldset>
+
+        <fieldset>
+          <legend><span class="q-number">6</span>When would you like to start?</legend>
+          <label class="option"><input type="radio" name="timing" value="2" />Within the next 2 weeks</label>
+          <label class="option"><input type="radio" name="timing" value="1" />Within the next 2 months</label>
+          <label class="option"><input type="radio" name="timing" value="0" />I'm just exploring for now</label>
+        </fieldset>
+
+        <button type="submit" class="cta-button">See my result</button>
+        <p class="error" id="form-error" style="display:none;">Please answer all six questions.</p>
+      </form>
+
+      <div id="result" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Sunbird Innovation Agency, a brand of Sunbird Sustainable Solutions. Empowering Africans to lead in bioscience.
+  </footer>
+
+  <script>
+    var SERVICE_EMAIL = "moola@moolamutondo.me";
+    var SIA_PAGE = "https://dr.moolamutondo.me/SIA.html";
+
+    var labels = {
+      stage: {
+        student: "Student",
+        early: "Early career",
+        mid: "Mid career",
+        senior: "Senior",
+        transition: "Left or planning to leave academia"
+      },
+      need: {
+        promotion: "Promotion or long-term career direction",
+        conflict: "Conflict or a difficult department",
+        leadership: "Leadership role",
+        change: "Career change or next chapter",
+        application: "A specific application, CV or grant",
+        opportunities: "Finding opportunities"
+      },
+      clarity: { "2": "Clear and specific", "1": "General sense", "0": "Not sure yet" },
+      commitment: { "2": "Ready to put in the work", "1": "Probably", "0": "Would rather someone did it" },
+      budget: { yes: "Yes", maybe: "Needs to think", no: "Not at the moment" },
+      timing: { "2": "Within 2 weeks", "1": "Within 2 months", "0": "Just exploring" }
+    };
+
+    function picked(name) {
+      var el = document.querySelector('input[name="' + name + '"]:checked');
+      return el ? el.value : null;
+    }
+
+    function escapeHtml(text) {
+      var div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function readyContent(answers) {
+      var summary =
+        "Hello Dr Mutondo,\n\n" +
+        "I completed the coaching questions on your website and would like to book a session.\n\n" +
+        "Career stage: " + labels.stage[answers.stage] + "\n" +
+        "Main need: " + labels.need[answers.need] + "\n" +
+        "Clarity: " + labels.clarity[answers.clarity] + "\n" +
+        "Ready to act between sessions: " + labels.commitment[answers.commitment] + "\n" +
+        "Comfortable with K550 per session: " + labels.budget[answers.budget] + "\n" +
+        "Preferred start: " + labels.timing[answers.timing] + "\n\n" +
+        "In a few sentences, my situation is:\n\n\n" +
+        "My name and institution:\n";
+
+      var href = "mailto:" + SERVICE_EMAIL +
+        "?subject=" + encodeURIComponent("Coaching request") +
+        "&body=" + encodeURIComponent(summary);
+
+      return '<h3>You look ready for coaching.</h3>' +
+        '<p>Your situation, your readiness to act and your timing are a good fit for private coaching.</p>' +
+        '<p><strong>Next step:</strong> click below to open an email to Dr Mutondo with your answers already filled in. Add a few sentences about your situation, your name and your institution, then send it. You will get a reply with available times.</p>' +
+        '<p><a class="cta-button" id="email-button" href="' + href + '">Email my answers and request a session</a></p>' +
+        '<p><a href="#" id="show-fallback">Email didn\'t open? Copy your answers instead</a></p>' +
+        '<div id="fallback" style="display:none;">' +
+          '<p><strong>Copy the text below</strong>, add your details, and send it to <a href="mailto:' + SERVICE_EMAIL + '">' + SERVICE_EMAIL + '</a> from any email account, with the subject "Coaching request".</p>' +
+          '<textarea id="answers-text" readonly>' + escapeHtml(summary) + '</textarea>' +
+          '<p><button type="button" class="cta-button" id="copy-button">Copy my answers</button> <span id="copy-status" class="small"></span></p>' +
+        '</div>' +
+        '<p class="small">Your answers are not stored on this website. They go only into the email you choose to send.</p>';
+    }
+
+    function showFallback() {
+      var box = document.getElementById("fallback");
+      if (box) { box.style.display = "block"; }
+    }
+
+    function copyAnswers() {
+      var area = document.getElementById("answers-text");
+      var status = document.getElementById("copy-status");
+      var text = area.value;
+      function done(ok) {
+        status.textContent = ok ? "Copied. Now paste it into an email to " + SERVICE_EMAIL + "." : "Select the text above and copy it.";
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { done(true); }, function () {
+          area.select();
+          done(document.execCommand && document.execCommand("copy"));
+        });
+      } else {
+        area.select();
+        done(document.execCommand && document.execCommand("copy"));
+      }
+    }
+
+    function wireReadyResult() {
+      var emailButton = document.getElementById("email-button");
+      var showLink = document.getElementById("show-fallback");
+      var copyButton = document.getElementById("copy-button");
+      if (emailButton) {
+        emailButton.addEventListener("click", function () {
+          // If no email app opens, the copy box appears a moment later.
+          setTimeout(showFallback, 1500);
+        });
+      }
+      if (showLink) {
+        showLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          showFallback();
+        });
+      }
+      if (copyButton) {
+        copyButton.addEventListener("click", copyAnswers);
+      }
+    }
+
+    function notYetContent(reason) {
+      var options = {
+        student: {
+          title: "Coaching isn't the best fit yet, but there's help for where you are.",
+          text: "Private coaching is designed for academics with a few years in the system. At your stage, these will help you more:",
+          items: [
+            "<strong>The Free Lunch Club</strong> (from K75 a month): checked scholarships, training and opportunities every month.",
+            "<strong>Group application clinic</strong> (K350 per seat): four weeks to get one application ready, with others at your stage.",
+            "<strong>Application review</strong> (quoted on request): detailed feedback on a CV or application."
+          ]
+        },
+        application: {
+          title: "An application review or clinic will help you faster.",
+          text: "For a specific application, CV or grant, focused feedback works better than open-ended coaching:",
+          items: [
+            "<strong>Application review</strong> (quoted on request): detailed written feedback within 5 working days.",
+            "<strong>Group application clinic</strong> (K350 per seat): four weeks of step-by-step support in a small group."
+          ]
+        },
+        opportunities: {
+          title: "The Free Lunch Club is made for this.",
+          text: "If you're looking for scholarships, fellowships and other opportunities, start here:",
+          items: [
+            "<strong>The Free Lunch Club</strong> (from K75 a month): a monthly box of opportunities, each checked, with its deadline and a tip on how to stand out."
+          ]
+        },
+        general: {
+          title: "Coaching may not be the right next step just yet.",
+          text: "Coaching works best when the situation is clear, the timing is right and you're ready to act between sessions. Meanwhile, these may help:",
+          items: [
+            "<strong>The Free Lunch Club</strong> (from K75 a month): opportunities and ideas every month.",
+            "<strong>Group application clinic</strong> (K350 per seat): structured support with others.",
+            "Come back to these questions whenever your situation changes."
+          ]
+        }
+      };
+
+      var o = options[reason] || options.general;
+      var list = "<ul>" + o.items.map(function (i) { return "<li>" + i + "</li>"; }).join("") + "</ul>";
+
+      return "<h3>" + escapeHtml(o.title) + "</h3>" +
+        "<p>" + escapeHtml(o.text) + "</p>" + list +
+        '<p><a class="cta-button" href="' + SIA_PAGE + '#services">See all options</a></p>' +
+        '<p class="small">If you still think coaching is right for you, email <a href="mailto:' + SERVICE_EMAIL + '?subject=Coaching%20question">' + SERVICE_EMAIL + '</a> and explain your situation.</p>';
+    }
+
+    document.getElementById("readiness-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var names = ["stage", "need", "clarity", "commitment", "budget", "timing"];
+      var answers = {};
+      var missing = false;
+
+      names.forEach(function (n) {
+        answers[n] = picked(n);
+        if (answers[n] === null) { missing = true; }
+      });
+
+      var error = document.getElementById("form-error");
+      if (missing) {
+        error.style.display = "block";
+        return;
+      }
+      error.style.display = "none";
+
+      var result = document.getElementById("result");
+      var ready = false;
+      var reason = "general";
+
+      if (answers.stage === "student") {
+        reason = "student";
+      } else if (answers.need === "application") {
+        reason = "application";
+      } else if (answers.need === "opportunities") {
+        reason = "opportunities";
+      } else if (answers.budget === "no" || answers.commitment === "0") {
+        reason = "general";
+      } else {
+        var score = Number(answers.clarity) + Number(answers.commitment) + Number(answers.timing);
+        if (answers.budget === "yes") { score += 1; }
+        ready = score >= 4;
+      }
+
+      result.className = ready ? "ready" : "not-yet";
+      result.innerHTML = ready ? readyContent(answers) : notYetContent(reason);
+      result.style.display = "block";
+      if (ready) { wireReadyResult(); }
+      result.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  </script>
+
+</body>
+</html>
