@@ -82,6 +82,35 @@
       margin: 0 auto 25px;
     }
 
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      text-align: left;
+    }
+
+    .hero-text {
+      flex: 1 1 50%;
+    }
+
+    .hero-text p {
+      margin: 0 0 25px;
+    }
+
+    .hero-photo {
+      flex: 1 1 50%;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 0 0 4px var(--yellow), 0 10px 30px rgba(0,0,0,0.4);
+    }
+
     .cta-button {
       display: inline-block;
       background-color: var(--yellow);
@@ -306,6 +335,10 @@
       .hero h2 {
         font-size: 2rem;
       }
+      .hero-inner {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -322,10 +355,16 @@
   </header>
 
   <div class="hero">
-    <div class="emoji" aria-hidden="true">🍱</div>
-    <h2>The Free Lunch Club</h2>
-    <p>"There's no such thing as a free lunch," people say. I beg to differ. Every month, I serve you a bento box of grants, exchanges, internships, mentorships and more: opportunities that are free to apply for, checked by me, for African students, researchers and lecturers.</p>
-    <a class="cta-button" href="#join">Join the club</a>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h2>The Free Lunch Club</h2>
+        <p>"There's no such thing as a free lunch," people say. I beg to differ. Every month, I serve you a bento box of grants, exchanges, internships, mentorships and more: opportunities that are free to apply for, checked by me, for African students, researchers and lecturers.</p>
+        <a class="cta-button" href="#join">Join the club</a>
+      </div>
+      <div class="hero-photo">
+        <img src="https://dr.moolamutondo.me/images/free-lunch-club-bento.jpg" alt="A laughing woman at an outdoor caf&eacute; table holding up a bento box of chicken, rice, broccoli, pickles and fruit" />
+      </div>
+    </div>
   </div>
 
   <main>
