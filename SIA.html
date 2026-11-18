@@ -289,6 +289,64 @@
         padding: 20px;
       }
     }
+
+    /* Fallback when an email app does not open */
+    .email-note {
+      margin-top: 14px;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+    .email-note a {
+      color: var(--yellow);
+    }
+    #mail-fallback {
+      display: none;
+      position: fixed;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%);
+      width: calc(100% - 40px);
+      max-width: 520px;
+      background: var(--white);
+      color: var(--black);
+      border: 2px solid var(--yellow);
+      border-radius: 10px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+      padding: 20px 22px;
+      z-index: 1000;
+    }
+    #mail-fallback h3 {
+      margin: 0 0 8px;
+    }
+    #mail-fallback .row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 8px 0;
+    }
+    #mail-fallback code {
+      background: var(--light-yellow);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    #mail-fallback button {
+      background: var(--yellow);
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    #mail-fallback .close {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      background: none;
+      font-size: 1.4rem;
+      padding: 0;
+    }
   </style>
 </head>
 <body>
@@ -305,6 +363,7 @@
     <h2>Build the science career you're dreaming of, with someone who has done it</h2>
     <p>Career guidance for African academics at every stage, from your first scholarship to your last promotion. Founded by Dr Moola Mutondo, geneticist, National Geographic Explorer and senior lecturer at the Copperbelt University.</p>
     <a href="mailto:moola@moolamutondo.me?subject=Application%20review%20quote" class="cta-button">Request a quote for an application review</a>
+    <p class="email-note">or write directly to <a href="mailto:moola@moolamutondo.me?subject=Application%20review%20quote">moola@moolamutondo.me</a></p>
     <br />
     <a href="#services" class="secondary-link">See all the ways I can help</a>
   </div>
@@ -435,6 +494,59 @@
   <footer>
     &copy; 2026 Sunbird Innovation Agency, a brand of Sunbird Sustainable Solutions. Empowering Africans to lead in bioscience.
   </footer>
+
+  <div id="mail-fallback" role="dialog" aria-live="polite" aria-label="Email details">
+    <button type="button" class="close" aria-label="Close">&times;</button>
+    <h3>Email didn't open?</h3>
+    <p>Send a message from any email account, such as Gmail, using these details:</p>
+    <div class="row"><strong>To:</strong> <code id="fb-email">moola@moolamutondo.me</code> <button type="button" data-copy="fb-email">Copy</button></div>
+    <div class="row"><strong>Subject:</strong> <code id="fb-subject"></code> <button type="button" data-copy="fb-subject">Copy</button></div>
+    <p id="fb-status" style="font-size:0.9rem;color:#555;margin:6px 0 0;"></p>
+  </div>
+
+  <script>
+    (function () {
+      var panel = document.getElementById("mail-fallback");
+      var timer = null;
+
+      function showPanel(subject) {
+        document.getElementById("fb-subject").textContent = subject || "Sunbird enquiry";
+        document.getElementById("fb-status").textContent = "";
+        panel.style.display = "block";
+      }
+
+      document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
+        link.addEventListener("click", function () {
+          var href = link.getAttribute("href");
+          var match = href.match(/[?&]subject=([^&]*)/);
+          var subject = match ? decodeURIComponent(match[1]) : "Sunbird enquiry";
+          clearTimeout(timer);
+          // If no email app opens, the details appear a moment later.
+          timer = setTimeout(function () { showPanel(subject); }, 1500);
+        });
+      });
+
+      panel.querySelector(".close").addEventListener("click", function () {
+        panel.style.display = "none";
+      });
+
+      panel.querySelectorAll("[data-copy]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var text = document.getElementById(btn.getAttribute("data-copy")).textContent;
+          var status = document.getElementById("fb-status");
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function () {
+              status.textContent = "Copied: " + text;
+            }, function () {
+              status.textContent = "Select the text and copy it.";
+            });
+          } else {
+            status.textContent = "Select the text and copy it.";
+          }
+        });
+      });
+    })();
+  </script>
 
 </body>
 </html>
