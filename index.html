@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dr Moola Mutondo - Geneticist, National Geographic Explorer and Career Coach</title>
+  <meta name="description" content="Dr Moola Mutondo: plant geneticist, astrobiology researcher, National Geographic Explorer and founder of Sunbird Innovation Agency, career guidance for African academics." />
+  <meta name="p:domain_verify" content="c82f538c1409d3c7c3534eb4e0ae2a9c"/>
+  <meta name="p:domain_verify" content="326f2775c80e9a6aaffc2ba6d4a2bf2b"/>
+  <link rel="icon" href="https://dr.moolamutondo.me/android-chrome-512x512.png" type="image/png" />
+
+  <style>
+    /* Brand Colors */
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --yellow: #FFD700; /* Gold yellow */
+      --light-yellow: #fff8cc;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--black);
+      color: var(--white);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    header img.logo {
+      height: 60px;
+      width: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 8px var(--yellow);
+    }
+
+    header .title-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 2.4rem;
+      color: var(--yellow);
+      letter-spacing: 1.5px;
+    }
+
+    header p {
+      margin: 3px 0 0;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--white);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--black) 0%, #333 100%);
+      color: var(--white);
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      margin: 0 0 20px 0;
+      color: var(--yellow);
+      border: none;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: var(--yellow);
+      color: var(--black);
+      padding: 16px 35px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .cta-button:hover {
+      background-color: #e6c200;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+    }
+
+    .secondary-link {
+      display: inline-block;
+      margin-top: 18px;
+      color: var(--yellow);
+      font-size: 1.05rem;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section {
+      margin: 60px 0;
+    }
+
+    h2 {
+      color: var(--black);
+      border-bottom: 3px solid var(--yellow);
+      padding-bottom: 10px;
+      margin-bottom: 25px;
+    }
+
+    h3 {
+      color: var(--black);
+      margin-bottom: 15px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin: 30px 0;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-card.highlight {
+      border: 2px solid var(--yellow);
+      background: var(--light-yellow);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 10px 0 15px;
+    }
+
+    .price small {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #555;
+    }
+
+    .card-link {
+      margin-top: auto;
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    .who-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .who-list li {
+      padding: 12px 0 12px 20px;
+      border-left: 4px solid var(--yellow);
+      margin-bottom: 12px;
+      background: #fafafa;
+    }
+
+    .process-steps {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    .step {
+      flex: 1;
+      min-width: 200px;
+      margin: 10px;
+      padding: 20px;
+    }
+
+    .step-number {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      background: var(--yellow);
+      color: var(--black);
+      border-radius: 50%;
+      line-height: 50px;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .about-box {
+      background-color: #f9f9f9;
+      padding: 30px 40px;
+      border-radius: 10px;
+      border-left: 5px solid var(--yellow);
+    }
+
+    .resources a {
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    .final-cta {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, var(--black) 0%, #333 100%);
+      color: var(--white);
+      border-radius: 10px;
+      margin: 60px 0;
+    }
+
+    .final-cta h2 {
+      color: var(--yellow);
+      border: none;
+    }
+
+    .final-cta a.plain {
+      color: var(--yellow);
+    }
+
+    footer {
+      text-align: center;
+      padding: 18px 10px;
+      margin-top: 50px;
+      color: #444;
+      font-size: 0.95rem;
+      background-color: #f5f5f5;
+      border-top: 1px solid var(--yellow);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      header {
+        justify-content: center;
+        gap: 10px;
+        text-align: center;
+      }
+
+      header .title-container {
+        align-items: center;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .process-steps {
+        flex-direction: column;
+      }
+
+      .step {
+        margin: 10px 0;
+      }
+
+      .about-box {
+        padding: 20px;
+      }
+    }
+
+    .intro {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: left;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .intro img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      object-position: center top;
+      background: var(--white);
+      border: 4px solid var(--yellow);
+    }
+
+    .intro-text {
+      flex: 1 1 380px;
+    }
+
+    .intro-text p {
+      margin: 0 0 16px;
+      max-width: none;
+    }
+
+    .follow-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .follow-list li {
+      padding: 12px 0 12px 20px;
+      border-left: 4px solid var(--yellow);
+      margin-bottom: 12px;
+      background: #fafafa;
+    }
+
+    .follow-list a,
+    .contact-box a {
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    /* Fallback when an email app does not open */
+    .email-note {
+      margin-top: 14px;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+    .email-note a {
+      color: var(--yellow);
+    }
+    #mail-fallback {
+      display: none;
+      position: fixed;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%);
+      width: calc(100% - 40px);
+      max-width: 520px;
+      background: var(--white);
+      color: var(--black);
+      border: 2px solid var(--yellow);
+      border-radius: 10px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+      padding: 20px 22px;
+      z-index: 1000;
+    }
+    #mail-fallback h3 {
+      margin: 0 0 8px;
+    }
+    #mail-fallback .row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 8px 0;
+    }
+    #mail-fallback code {
+      background: var(--light-yellow);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    #mail-fallback button {
+      background: var(--yellow);
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    #mail-fallback .close {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      background: none;
+      font-size: 1.4rem;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="title-container">
+      <h1>Dr Moola Mutondo</h1>
+      <p>Plant geneticist &middot; Astrobiology explorer &middot; Advocate for science innovation in Africa</p>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="intro">
+      <img src="images/moola-portrait.png" alt="Dr Moola Mutondo" />
+      <div class="intro-text">
+        <h2 style="text-align:left;">Science, origins, and helping African researchers rise</h2>
+        <p>I'm a geneticist with more than 20 years in academia and research across Africa and Europe. I did my doctoral research in the International Max Planck Research School in Cologne, studied life in extreme environments such as Antarctica, and today I'm a senior lecturer at the Copperbelt University and a National Geographic Explorer working with their SPACE portfolio.</p>
+        <p>This site is the front door to my research lab and to Sunbird Innovation Agency, where I help other academics build the careers they're dreaming of.</p>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section id="explore">
+      <h2>Where would you like to go?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🪐</div>
+          <h3>Mutondo Astrobiology Lab</h3>
+          <p>My research group studies the nature and origins of life, from natural African extreme environments to mining sites as analogues for other worlds. Current projects include the cosmic origins of Lake Bangweulu, bioremediation of lead sites in Kabwe, and the biotechnology of Black Mountain slag.</p>
+          <a class="card-link" href="https://dr.moolamutondo.me/astrobiolab.html">Visit the lab &rarr;</a>
+        </div>
+
+        <div class="feature-card highlight">
+          <div class="feature-icon">🎓</div>
+          <h3>Workshops for researchers</h3>
+          <p>Short, practical workshops on interviews, applications and looking the part online. Each runs once enough people have reserved a seat.</p>
+          <a class="card-link" href="https://dr.moolamutondo.me/workshops.html">See upcoming workshops &rarr;</a>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🧭</div>
+          <h3>Sunbird Innovation Agency</h3>
+          <p>Career guidance for African academics at every stage: application reviews, group clinics and private coaching, from your first scholarship to your last promotion.</p>
+          <a class="card-link" href="https://dr.moolamutondo.me/SIA.html">See how I can help &rarr;</a>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🍱</div>
+          <h3>Free Lunch Club</h3>
+          <p>A monthly bento box of grants, exchanges, internships, mentorships and more, all free to apply for and checked by me.</p>
+          <a class="card-link" href="https://dr.moolamutondo.me/freelunchclub.html">Join the club &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="follow">
+      <h2>Read and follow</h2>
+      <ul class="follow-list">
+        <li><a href="https://astrobiolab.substack.com/">Astrobiolab on Substack</a>: course notes and opportunities.</li>
+        <li><a href="https://mailchi.mp/67bffee3fdc3/extremosphere">Extremosphere</a>: a free newsletter on astrobiology, origins and the future of humanity.</li>
+        <li><a href="https://www.youtube.com/@drmutondo">YouTube</a>: videos at @drmutondo.</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="about-box contact-box">
+        <p><strong>Research collaborations:</strong> <a href="mailto:moola.mutondo@cbu.ac.zm">moola.mutondo@cbu.ac.zm</a></p>
+        <p><strong>Coaching, workshops, application reviews, speaking and other services:</strong> <a href="mailto:moola@moolamutondo.me?subject=Enquiry">moola@moolamutondo.me</a></p>
+        <p>Dept. of Biological Sciences, SMNS, The Copperbelt University, Jambo Drive, Kitwe, Zambia</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2026 Dr Moola Mutondo &middot; Mutondo Astrobiology Laboratory &middot; Sunbird Innovation Agency, a brand of Sunbird Sustainable Solutions.
+  </footer>
+
+  <div id="mail-fallback" role="dialog" aria-live="polite" aria-label="Email details">
+    <button type="button" class="close" aria-label="Close">&times;</button>
+    <h3>Email didn't open?</h3>
+    <p>Send a message from any email account, such as Gmail, using these details:</p>
+    <div class="row"><strong>To:</strong> <code id="fb-email">moola@moolamutondo.me</code> <button type="button" data-copy="fb-email">Copy</button></div>
+    <div class="row"><strong>Subject:</strong> <code id="fb-subject"></code> <button type="button" data-copy="fb-subject">Copy</button></div>
+    <p id="fb-status" style="font-size:0.9rem;color:#555;margin:6px 0 0;"></p>
+  </div>
+
+  <script>
+    (function () {
+      var panel = document.getElementById("mail-fallback");
+      var timer = null;
+
+      function showPanel(subject) {
+        document.getElementById("fb-subject").textContent = subject || "Sunbird enquiry";
+        document.getElementById("fb-status").textContent = "";
+        panel.style.display = "block";
+      }
+
+      document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
+        link.addEventListener("click", function () {
+          var href = link.getAttribute("href");
+          var match = href.match(/[?&]subject=([^&]*)/);
+          var subject = match ? decodeURIComponent(match[1]) : "Sunbird enquiry";
+          clearTimeout(timer);
+          // If no email app opens, the details appear a moment later.
+          timer = setTimeout(function () { showPanel(subject); }, 1500);
+        });
+      });
+
+      panel.querySelector(".close").addEventListener("click", function () {
+        panel.style.display = "none";
+      });
+
+      panel.querySelectorAll("[data-copy]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var text = document.getElementById(btn.getAttribute("data-copy")).textContent;
+          var status = document.getElementById("fb-status");
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function () {
+              status.textContent = "Copied: " + text;
+            }, function () {
+              status.textContent = "Select the text and copy it.";
+            });
+          } else {
+            status.textContent = "Select the text and copy it.";
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
