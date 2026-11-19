@@ -493,3 +493,8 @@ h3 { font-size: 1.4rem; }
   .show-hero-grid { grid-template-columns: 1fr; }
   .host-photo { justify-self: start; }
 }
+
+/* Home: welcome section */
+.welcome { padding: 64px 0; }
+.welcome h1 { margin-bottom: 0.4em; }
+.welcome .lead { margin: 0 0 14px; }
