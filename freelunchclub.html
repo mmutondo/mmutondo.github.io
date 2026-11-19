@@ -562,6 +562,7 @@
             <li>The month&#39;s working-lunch bento recipe</li>
             <li>For undergraduate, MSc and PhD students</li>
           </ul>
+          <p><a class="plan-link" href="#join" data-plan="Lunch Box, for students (K75 a month)">Join the Lunch Box &rarr;</a></p>
         </div>
         <div class="plan featured">
           <h3>Chef&#39;s Table</h3>
@@ -573,6 +574,7 @@
             <li>A seat in a quarterly group application clinic</li>
             <li>For postdocs, lecturers and other academics</li>
           </ul>
+          <p><a class="plan-link" href="#join" data-plan="Chef&#39;s Table, for researchers and lecturers (K250 a month)">Join the Chef&#39;s Table &rarr;</a></p>
         </div>
       </div>
       <p class="note"><strong>Price lock:</strong> join while this offer lasts and keep today&#39;s price for as long as you&#39;re a member, even when prices go up.</p>
@@ -755,5 +757,16 @@
     })();
   </script>
 
+  <script>
+    // A plan's Join link scrolls to the form with that plan already chosen.
+    document.querySelectorAll("a[data-plan]").forEach(function (link) {
+      link.addEventListener("click", function () {
+        var wanted = link.getAttribute("data-plan");
+        document.querySelectorAll('input[name="plan"]').forEach(function (radio) {
+          if (radio.value === wanted) radio.checked = true;
+        });
+      });
+    });
+  </script>
 </body>
 </html>
