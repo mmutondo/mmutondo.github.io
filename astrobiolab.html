@@ -514,106 +514,26 @@
       // The exoplanet we arrive at: drawn once into its own canvas, then placed each frame.
       var planetImg = null, planet = { x: 0, y: 0, r: 0 };
 
+      var planetSrc = new Image();
+      planetSrc.onload = function () {
+        makePlanet();
+        if (still) { ctx.clearRect(0, 0, width, height); drawSky(0, 1); drawPlanet(1); }
+      };
+      planetSrc.src = "https://dr.moolamutondo.me/images/exoplanet.png";
+
       function makePlanet() {
         var r = Math.round(Math.min(height * 0.15, width * 0.1));
         if (r < 28) r = 28;
         planet = { x: width * 0.86, y: height * 0.7, r: r };
-        var pad = Math.round(r * 0.4);
-        var size = (r + pad) * 2;
+        if (!planetSrc.complete || !planetSrc.naturalWidth) return;
+        // The image holds the planet plus a thin glow around it
+        var size = Math.round(r * 2 * (452 / 425));
         var c = document.createElement("canvas");
         c.width = Math.round(size * ratio);
         c.height = Math.round(size * ratio);
         var g = c.getContext("2d");
-        g.setTransform(ratio, 0, 0, ratio, 0, 0);
-        var m = size / 2;
-
-        // Same planet every visit: a fixed-seed random generator
-        var seed = 20261119;
-        function rand() {
-          seed |= 0; seed = seed + 0x6D2B79F5 | 0;
-          var t = Math.imul(seed ^ seed >>> 15, 1 | seed);
-          t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
-          return ((t ^ t >>> 14) >>> 0) / 4294967296;
-        }
-
-        // Hazy amber atmosphere, a nod to Titan
-        var halo = g.createRadialGradient(m, m, r * 0.95, m, m, r + pad);
-        halo.addColorStop(0, "rgba(255,190,120,0.30)");
-        halo.addColorStop(0.4, "rgba(255,170,100,0.10)");
-        halo.addColorStop(1, "rgba(255,170,100,0)");
-        g.fillStyle = halo;
-        g.beginPath();
-        g.arc(m, m, r + pad, 0, Math.PI * 2);
-        g.fill();
-
-        g.save();
-        g.beginPath();
-        g.arc(m, m, r, 0, Math.PI * 2);
-        g.clip();
-
-        // Icy surface, lit from the upper left, like Europa
-        var body = g.createRadialGradient(m - r * 0.4, m - r * 0.45, r * 0.05, m, m, r * 1.05);
-        body.addColorStop(0, "#f4f8fa");
-        body.addColorStop(0.4, "#c4d9e0");
-        body.addColorStop(0.8, "#7b9cab");
-        body.addColorStop(1, "#33444d");
-        g.fillStyle = body;
-        g.fillRect(0, 0, size, size);
-
-        // Patches of open teal sea, the weird-Earth part
-        for (var i = 0; i < 7; i++) {
-          var px = m + (rand() * 1.6 - 0.8) * r, py = m + (rand() * 1.6 - 0.8) * r, pr = r * (0.12 + rand() * 0.22);
-          var sea = g.createRadialGradient(px, py, 0, px, py, pr);
-          sea.addColorStop(0, "rgba(28,122,128,0.55)");
-          sea.addColorStop(1, "rgba(28,122,128,0)");
-          g.fillStyle = sea;
-          g.beginPath();
-          g.arc(px, py, pr, 0, Math.PI * 2);
-          g.fill();
-        }
-
-        // Rusty cracks across the ice
-        g.lineCap = "round";
-        for (var j = 0; j < 22; j++) {
-          var x0 = m + (rand() * 2 - 1) * r, y0 = m + (rand() * 2 - 1) * r;
-          var ang = rand() * Math.PI, len = r * (0.5 + rand() * 1.2);
-          var x3 = x0 + Math.cos(ang) * len, y3 = y0 + Math.sin(ang) * len;
-          g.strokeStyle = "rgba(150,78,45," + (0.25 + rand() * 0.35) + ")";
-          g.lineWidth = r * (0.006 + rand() * 0.012);
-          g.beginPath();
-          g.moveTo(x0, y0);
-          g.bezierCurveTo(x0 + (rand() - 0.5) * r, y0 + (rand() - 0.5) * r, x3 + (rand() - 0.5) * r, y3 + (rand() - 0.5) * r, x3, y3);
-          g.stroke();
-        }
-
-        // A few soft white cloud wisps
-        for (var k = 0; k < 5; k++) {
-          var cx2 = m + (rand() * 1.4 - 0.7) * r, cy2 = m + (rand() * 1.4 - 0.7) * r;
-          var cloud = g.createRadialGradient(cx2, cy2, 0, cx2, cy2, r * 0.3);
-          cloud.addColorStop(0, "rgba(255,255,255,0.35)");
-          cloud.addColorStop(1, "rgba(255,255,255,0)");
-          g.fillStyle = cloud;
-          g.beginPath();
-          g.ellipse(cx2, cy2, r * 0.35, r * 0.12, rand() * Math.PI, 0, Math.PI * 2);
-          g.fill();
-        }
-
-        // Night side: shadow away from the light
-        var night = g.createLinearGradient(m - r * 0.6, m - r * 0.6, m + r, m + r);
-        night.addColorStop(0, "rgba(0,0,0,0)");
-        night.addColorStop(0.5, "rgba(0,0,0,0.25)");
-        night.addColorStop(1, "rgba(0,0,0,0.9)");
-        g.fillStyle = night;
-        g.fillRect(0, 0, size, size);
-        g.restore();
-
-        // Thin lit edge of the haze on the day side
-        g.strokeStyle = "rgba(255,200,140,0.6)";
-        g.lineWidth = Math.max(1, r * 0.02);
-        g.beginPath();
-        g.arc(m, m, r - g.lineWidth / 2, Math.PI * 0.85, Math.PI * 1.65);
-        g.stroke();
-
+        g.imageSmoothingQuality = "high";
+        g.drawImage(planetSrc, 0, 0, c.width, c.height);
         planetImg = { canvas: c, size: size };
       }
 
