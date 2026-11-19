@@ -407,3 +407,89 @@ h3 { font-size: 1.4rem; }
   .about { grid-template-columns: 1fr; justify-items: start; }
   .section { padding: 52px 0; }
 }
+
+/* ---------------------------------------------------------------
+   The show: its own black, yellow and white look
+   --------------------------------------------------------------- */
+.theme-show {
+  --gold: #FFD700;
+  --black: #000000;
+  background: #ffffff;
+}
+
+.theme-show .site-header { background: var(--black); border-bottom: 3px solid var(--gold); }
+.theme-show .site-header .brand { color: #fff; }
+.theme-show .site-header .brand svg { stroke: var(--gold); }
+.theme-show .site-nav a { color: #fff; }
+.theme-show .site-nav a:hover, .theme-show .site-nav a:focus-visible { color: var(--gold); }
+.theme-show .site-nav a[aria-current="page"] { color: var(--gold); border-bottom-color: var(--gold); }
+.theme-show .site-nav .nav-join a { background: var(--gold); color: var(--black); }
+.theme-show .site-nav .nav-join a:hover, .theme-show .site-nav .nav-join a:focus-visible { background: #fff; color: var(--black); }
+
+.theme-show h1, .theme-show h2, .theme-show h3 { font-family: Arial, Helvetica, sans-serif; font-weight: 800; letter-spacing: -0.01em; }
+.theme-show .kicker { color: var(--black); }
+
+.theme-show .btn { background: var(--gold); border-color: var(--gold); color: var(--black); }
+.theme-show .btn:hover, .theme-show .btn:focus-visible { background: var(--black); border-color: var(--black); color: var(--gold); }
+.theme-show .btn.outline { background: transparent; border-color: var(--black); color: var(--black); }
+.theme-show .btn.outline:hover, .theme-show .btn.outline:focus-visible { background: var(--black); color: var(--gold); }
+
+/* Hero */
+.show-hero { background: var(--black); color: #fff; padding: 64px 0; }
+.show-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 48px;
+  align-items: center;
+}
+.show-hero h1 { color: #fff; font-size: clamp(2.6rem, 5.5vw, 4rem); line-height: 1.02; }
+.show-hero h1 span { color: var(--gold); }
+.show-hero .kicker { color: var(--gold); }
+.show-hero .lead { color: #f2f2f2; }
+.show-hero .btn:hover, .show-hero .btn:focus-visible { background: #fff; border-color: #fff; color: var(--black); }
+
+.show-logo {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.show-logo svg { width: 46px; height: 36px; }
+
+.host-photo { margin: 0; justify-self: center; text-align: center; }
+.host-photo img {
+  width: min(380px, 100%);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 0 0 5px var(--gold), 0 18px 40px rgba(0, 0, 0, 0.5);
+}
+.host-photo figcaption { color: var(--gold); font-weight: 700; margin-top: 16px; letter-spacing: 0.04em; }
+
+/* Steps, bands, panels */
+.theme-show .steps li { border-color: #e6e6e6; }
+.theme-show .steps li::before { background: var(--gold); color: var(--black); }
+.theme-show .gold-band { background: var(--gold); }
+.theme-show .gold-band .panel { border: 0; }
+.theme-show .dark { background: var(--black); color: #fff; }
+.theme-show .dark h2 { color: #fff; }
+.theme-show .dark .lead { color: #f2f2f2; }
+.theme-show .dark .btn:hover, .theme-show .dark .btn:focus-visible { background: #fff; border-color: #fff; color: var(--black); }
+
+/* Join bar and footer on the show page */
+.theme-show .join-bar { background: var(--gold); color: var(--black); }
+.theme-show .join-bar h2 { color: var(--black); }
+.theme-show .join-bar .btn.light { border-color: var(--black); color: var(--black); }
+.theme-show .join-bar .btn.light:hover, .theme-show .join-bar .btn.light:focus-visible { background: var(--black); color: var(--gold); }
+.theme-show .site-footer { background: var(--black); color: #cfcfcf; border-top: 0; }
+.theme-show .site-footer a { color: #fff; }
+.theme-show .site-footer .brand svg { stroke: var(--gold); }
+
+@media (max-width: 860px) {
+  .show-hero-grid { grid-template-columns: 1fr; }
+  .host-photo { justify-self: start; }
+}
