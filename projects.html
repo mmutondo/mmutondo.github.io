@@ -1,0 +1,708 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Research Projects - Mutondo Astrobiology Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="https://dr.moolamutondo.me/MAL favicon 5.png" type="image/png" />
+
+  <style>
+    .gold-button {
+      background-color: gold;
+      border: none;
+      color: black;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+      display: inline-block;
+      margin: 6px 4px;
+    }
+    .gold-button:hover {
+      background-color: #e6c200; /* Slightly darker gold on hover */
+    }
+    /* Base black and white theme */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: black;
+      color: white;
+      overflow-x: hidden; /* hide horizontal scrollbars caused by stars */
+      position: relative;
+      min-height: 100vh;
+    }
+
+    /* Starfield background: drawn on a canvas behind the page */
+    #starfield {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header {
+      position: relative;
+      z-index: 10;
+    }
+
+    .main-content {
+      position: relative;
+      z-index: 10;
+      max-width: 800px;
+      margin: 2.5rem auto 4rem auto;
+      padding: 2rem;
+      background: #111;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px #0009;
+   
+    }
+        header {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #111;
+      border-radius: 8px 8px 0 0;
+      border-bottom: 2px solid #222;
+      /* centers the header horizontally */
+      justify-content: center;
+    }
+    .header {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .logo {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      object-fit: contain;
+      max-height: 500px;  /* adjust as needed */
+      border-radius: 4px;
+      flex-shrink: 0;   
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 0.1em;
+      color: white;
+    }
+    
+    header div {
+      flex-grow: 1;
+      color: white;
+    }  
+
+    header p {
+      margin: 0.3rem 0 0;
+      color: #aaa;
+      font-size: 1.1rem;
+    }
+
+    nav {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      border-bottom: 2px solid #222;
+      padding: 1rem 0;
+      margin-bottom: 1rem;
+      border-radius: 0 0 8px 8px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      padding: 6px 10px;
+      border-radius: 3px;
+      transition: background 0.2s;
+    }
+    nav a:hover {
+      background: white;
+      color: black;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      border-bottom: 1px solid #333;
+      padding-bottom: 0.5rem;
+      margin-top: 0;
+      font-size: 2rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    ul li {
+      margin-bottom: 0.6rem;
+    }
+
+    /* People section with two columns */
+    .people-list {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    /* Left column for Dr Moola Mutondo */
+    .people-left {
+      flex: 1 1 45%;
+      background: #222;
+      border-radius: 6px;
+      padding: 1rem;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Right column for other people */
+    .people-right {
+      flex: 1 1 45%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .person {
+      background: #222;
+      border-radius: 6px;
+      padding: 1rem;
+      color: white;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .person img {
+      border-radius: 0;
+      border: 2px solid white; /* optional visible border */
+      background: #333;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Dr Moola Mutondo's image twice as big */
+    .people-left img {
+      width: 160px;  /* Twice the normal size */
+      height: 160px;
+      margin-bottom: 1rem;
+    }
+    /* Other people images at base size */
+    .people-right .person img {
+      width: 80px;
+      height: 80px;
+    }
+
+    /* Person Name Links */
+    .person a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.2s;
+    }
+    .person a:hover {
+      color: gold;
+      text-decoration: underline;
+    }
+
+    /* Person info container for text to wrap nicely with image */
+    .person-info {
+      flex: 1;
+      text-align: left;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5rem 0;
+      color: #aaa;
+      background: black;
+      border-top: 2px solid #222;
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 10;
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      border-radius: 8px;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 700px) {
+      .people-list {
+        flex-direction: column;
+      }
+      .people-left,
+      .people-right {
+        flex: 1 1 100%;
+      }
+      .people-left img {
+        width: 120px;
+        height: 120px;
+      }
+      .people-right .person img {
+        width: 60px;
+        height: 60px;
+      }
+      .person-info {
+        text-align: center;
+      }
+    }
+
+    /* Group names (not links) and opportunities card */
+    .group-name {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    .opportunities-card {
+      border: 2px solid gold;
+    }
+    .opp-icon {
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.6rem;
+      background: #333;
+      border: 2px solid white;
+    }
+    @media (max-width: 700px) {
+      .opp-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+      }
+    }
+
+    /* Sunbird section */
+    .sunbird {
+      background: #1a1a1a;
+      border: 2px solid gold;
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+    .sunbird img {
+      max-width: 180px;
+      width: 60%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 12px #D4AF37;
+      margin-bottom: 1rem;
+    }
+    .sunbird h2 {
+      color: gold;
+      border-bottom: none;
+    }
+    .sunbird ul {
+      text-align: left;
+      max-width: 520px;
+      margin: 1rem auto;
+      padding-left: 0;
+    }
+    .sunbird ul li::before {
+      content: "\2726  ";
+      color: gold;
+    }
+    .sunbird .tagline {
+      font-weight: bold;
+      margin: 1.2rem 0;
+    }
+    a.gold-button {
+      display: inline-block;
+      text-decoration: none;
+    }
+  </style>
+  <style>
+    /* Projects page */
+    .theme-note {
+      font-style: italic;
+      color: #cccccc;
+      margin-top: -0.25rem;
+    }
+    .project-list {
+      padding-left: 0;
+    }
+    .project-list li {
+      padding: 0.6rem 0 0.6rem 0;
+      border-bottom: 1px solid #222;
+      margin-bottom: 0;
+    }
+    .level {
+      display: inline-block;
+      min-width: 3.2rem;
+      text-align: center;
+      margin-right: 0.6rem;
+      padding: 1px 8px;
+      border: 1px solid gold;
+      border-radius: 999px;
+      color: gold;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    /* Site-wide menu, the same on every page */
+    .site-nav {
+      position: relative;
+      z-index: 20;
+      background: #000000;
+      border-bottom: 1px solid #FFD700;
+      font-family: Arial, Helvetica, sans-serif;
+      display: block;
+      padding: 0;
+      margin: 0;
+      gap: 0;
+      border-radius: 0;
+    }
+    .site-nav li {
+      margin: 0;
+    }
+    .site-nav ul {
+      list-style: none;
+      margin: 0 auto;
+      padding: 0 16px;
+      max-width: 1100px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px 22px;
+    }
+    .site-nav a {
+      display: inline-block;
+      padding: 12px 2px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      border-bottom: 2px solid transparent;
+      border-radius: 0;
+      background: transparent;
+    }
+    .site-nav a:hover,
+    .site-nav a:focus-visible {
+      color: #FFD700;
+      background: transparent;
+    }
+    .site-nav a[aria-current="page"] {
+      color: #FFD700;
+      border-bottom-color: #FFD700;
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Site">
+    <ul>
+      <li><a href="https://dr.moolamutondo.me/">Home</a></li>
+      <li><a href="https://dr.moolamutondo.me/astrobiolab.html" aria-current="page">Lab</a></li>
+      <li><a href="https://dr.moolamutondo.me/SIA.html">Sunbird</a></li>
+      <li><a href="https://dr.moolamutondo.me/workshops.html">Workshops</a></li>
+      <li><a href="https://dr.moolamutondo.me/freelunchclub.html">Free Lunch Club</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- Starfield background: stars twinkle softly, dim and bright -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <header>
+    <div class="header">
+      <img
+        class="logo"
+        src="https://dr.moolamutondo.me/Bigbluedot.jpg"
+        alt="Mutondo Astrobiology logo"
+      />
+    </div>
+  </header>
+  
+  <div class="main-content">
+
+    <section>
+      <h1>Student Research Projects</h1>
+      <p>PhD, MSc and BSc projects from the Mutondo Astrobiology Laboratory, grouped by theme.</p>
+      <p><a href="https://dr.moolamutondo.me/astrobiolab.html" style="color:#fff; text-decoration:underline;">&larr; Back to the lab</a></p>
+    </section>
+
+    <section id="theme-1">
+      <h2>Life in extreme and human-made environments</h2>
+      <p class="theme-note">Mining sites and polluted waters as stand-ins for harsh environments on other worlds.</p>
+      <ul class="project-list">
+        <li><span class="level">PhD</span> Potentially harmful elements in Nkana slag and the microbes associated with them</li>
+        <li><span class="level">BSc</span> Heavy-metal remediation by cyanobacteria from industrial wastewater</li>
+        <li><span class="level">BSc</span> Mycoremediation of wastewater from Hippo Dam, Chingola, using <i>Aspergillus niger</i></li>
+        <li><span class="level">BSc</span> Antibiotic-resistant algae in natural and human-made environments of Kitwe</li>
+        <li><span class="level">BSc</span> Gut microbes of wax worms in plastic biodegradation</li>
+      </ul>
+    </section>
+
+    <section id="theme-2">
+      <h2>Cyanobacteria: from Zambian waters to life support</h2>
+      <p class="theme-note">The organisms that first oxygenated Earth, studied as partners for growing food in hard places.</p>
+      <ul class="project-list">
+        <li><span class="level">BSc</span> Morphotyping cyanobacteria in Zambian waterways (Kafue River)</li>
+        <li><span class="level">BSc</span> Optimising a cyanobacteria-biochar biofertiliser</li>
+        <li><span class="level">BSc</span> Biochar and microalgae as a combined biofertiliser for crop growth</li>
+      </ul>
+    </section>
+
+    <section id="theme-3">
+      <h2>Life&#39;s chemical toolkit: cyclotides and bioactive compounds</h2>
+      <p class="theme-note">Unusually tough plant molecules that hint at how life builds stable chemistry.</p>
+      <ul class="project-list">
+        <li><span class="level">PhD</span> Sequence analysis and characterisation of bioactive compounds in <i>Cassia abbreviata</i></li>
+        <li><span class="level">MSc</span> Sequence analysis and characterisation of bioactive compounds in <i>Cassia abbreviata</i></li>
+        <li><span class="level">MSc</span> Cyclotides from Zambian Cucurbitaceae and Poaceae for potential insecticidal applications</li>
+        <li><span class="level">BSc</span> Cyclotides from local plants as potential acaricides against ticks</li>
+        <li><span class="level">BSc</span> Haemolytic activity of cyclotides from <i>Solanum torvum</i>, <i>S. aethiopicum</i> and <i>Vigna unguiculata</i></li>
+      </ul>
+    </section>
+
+    <section id="theme-4">
+      <h2>Reading and designing life&#39;s molecules with computers</h2>
+      <p class="theme-note">Bioinformatics and deep learning to find and design proteins.</p>
+      <ul class="project-list">
+        <li><span class="level">BSc</span> Discovery of cyclotide precursors in the <i>Solanum aethiopicum</i> genome</li>
+        <li><span class="level">BSc</span> Characterisation and validation of cyclotide domains in <i>Cassia abbreviata</i></li>
+        <li><span class="level">BSc</span> Inverse protein folding of cyclotides in <i>Solanum aethiopicum</i> using deep learning</li>
+        <li><span class="level">BSc</span> Inverse protein folding of the Arp2/3 complex in <i>Solanum aethiopicum</i> using deep learning</li>
+      </ul>
+    </section>
+
+    <section id="theme-5">
+      <h2>Other biotech projects</h2>
+      <ul class="project-list">
+        <li><span class="level">BSc</span> Detecting meat adulteration using DNA technology and bioinformatics</li>
+        <li><span class="level">BSc</span> Antifungal and antibacterial properties of soy yoghurt infused with <i>Bidens pilosa</i></li>
+        <li><span class="level">BSc</span> Oat yoghurt infused with functional foods</li>
+        <li><span class="level">BSc</span> Protein biomarkers for psychiatric disorders (depression, schizophrenia and bipolar disorder)</li>
+      </ul>
+    </section>
+
+    <section>
+      <p>Interested in a project like these? <a href="https://dr.moolamutondo.me/lab-opportunities.html" style="color:gold; text-decoration:underline;">See current opportunities in the lab &rarr;</a></p>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2026 Mutondo Astrobiology Laboratory 🪐 Sunbird Sustainable Solutions — All Rights Reserved.
+  </footer>
+
+
+  <script>
+    (function () {
+      var canvas = document.getElementById("starfield");
+      if (!canvas || !canvas.getContext) return;
+      var ctx = canvas.getContext("2d");
+      var stars = [];
+      var warp = [];
+      var width = 0, height = 0, ratio = 1;
+      var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var tints = ["255,255,255", "255,255,255", "255,255,255", "214,228,255", "255,240,214"];
+
+      // Warp on arrival: once per visit, then the calm starry sky.
+      var WARP_TIME = 3.2;
+      var warpOn = !still;
+      try {
+        if (sessionStorage.getItem("malWarpSeen")) warpOn = false;
+        sessionStorage.setItem("malWarpSeen", "1");
+      } catch (e) {}
+      var start = null;
+
+      function makeStars() {
+        ratio = Math.min(window.devicePixelRatio || 1, 2);
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = Math.round(width * ratio);
+        canvas.height = Math.round(height * ratio);
+        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+        var count = Math.min(420, Math.round((width * height) / 5200));
+        stars = [];
+        for (var i = 0; i < count; i++) {
+          var bright = Math.random() < 0.05;
+          stars.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            r: bright ? 1.3 + Math.random() * 0.9 : 0.25 + Math.pow(Math.random(), 3) * 1.1,
+            base: bright ? 0.75 + Math.random() * 0.2 : 0.15 + Math.random() * 0.55,
+            depth: bright ? 0.25 : 0.1 + Math.random() * 0.4,
+            speed: 0.4 + Math.random() * 1.4,
+            phase: Math.random() * Math.PI * 2,
+            tint: tints[Math.floor(Math.random() * tints.length)],
+            glow: bright
+          });
+        }
+        makePlanet();
+      }
+
+      // The exoplanet we arrive at: drawn once into its own canvas, then placed each frame.
+      var planetImg = null, planet = { x: 0, y: 0, r: 0 };
+
+      var planetSrc = new Image();
+      planetSrc.onload = function () {
+        makePlanet();
+        if (still) { ctx.clearRect(0, 0, width, height); drawSky(0, 1); drawPlanet(1); }
+      };
+      planetSrc.src = "https://dr.moolamutondo.me/images/exoplanet.png";
+
+      function makePlanet() {
+        var r = Math.round(Math.min(height * 0.15, width * 0.1));
+        if (r < 28) r = 28;
+        planet = { x: width * 0.86, y: height * 0.7, r: r };
+        if (!planetSrc.complete || !planetSrc.naturalWidth) return;
+        // The image holds the planet plus a thin glow around it
+        var size = Math.round(r * 2 * (452 / 425));
+        var c = document.createElement("canvas");
+        c.width = Math.round(size * ratio);
+        c.height = Math.round(size * ratio);
+        var g = c.getContext("2d");
+        g.imageSmoothingQuality = "high";
+        g.drawImage(planetSrc, 0, 0, c.width, c.height);
+        planetImg = { canvas: c, size: size };
+      }
+
+      function drawPlanet(q) {
+        if (!planetImg || q <= 0) return;
+        // q: 0 = far away near the centre, 1 = arrived in its place
+        var e = 1 - Math.pow(1 - q, 3);
+        var scale = 0.08 + 0.92 * e;
+        var x = width * 0.55 + (planet.x - width * 0.55) * e;
+        var y = height * 0.5 + (planet.y - height * 0.5) * e;
+        var sz = planetImg.size * scale;
+        ctx.globalAlpha = clamp(q * 1.6, 0, 1);
+        ctx.drawImage(planetImg.canvas, x - sz / 2, y - sz / 2, sz, sz);
+        ctx.globalAlpha = 1;
+      }
+
+      function newWarpStar(anyDepth) {
+        return {
+          x: (Math.random() * 2 - 1) * width,
+          y: (Math.random() * 2 - 1) * height,
+          z: anyDepth ? 0.05 + Math.random() * 0.95 : 1,
+          tint: tints[Math.floor(Math.random() * tints.length)]
+        };
+      }
+
+      function makeWarp() {
+        warp = [];
+        var count = Math.min(500, Math.round((width * height) / 3500));
+        for (var i = 0; i < count; i++) warp.push(newWarpStar(true));
+      }
+
+      function clamp(v, lo, hi) { return v < lo ? lo : (v > hi ? hi : v); }
+
+      function drawSky(t, fade) {
+        for (var i = 0; i < stars.length; i++) {
+          var s = stars[i];
+          var a = still ? s.base : s.base + Math.sin(t * s.speed + s.phase) * s.depth;
+          a = clamp(a, 0.03, 1) * fade;
+          if (a <= 0) continue;
+          if (s.glow) {
+            var g = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 6);
+            g.addColorStop(0, "rgba(" + s.tint + "," + (a * 0.45) + ")");
+            g.addColorStop(1, "rgba(" + s.tint + ",0)");
+            ctx.fillStyle = g;
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.r * 6, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          ctx.fillStyle = "rgba(" + s.tint + "," + a + ")";
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      function drawWarp(elapsed, dt, fade) {
+        // Full speed at first, easing to a stop by the end.
+        var p = clamp(elapsed / WARP_TIME, 0, 1);
+        var speed = 1.6 * Math.pow(1 - p, 2);
+        var trail = 0.02 + speed * 0.12;
+        var cx = width / 2, cy = height / 2, f = 0.5;
+        ctx.lineCap = "round";
+        for (var i = 0; i < warp.length; i++) {
+          var w = warp[i];
+          w.z -= speed * dt;
+          if (w.z < 0.03) { warp[i] = newWarpStar(false); continue; }
+          var zTail = Math.min(1, w.z + trail);
+          var x1 = cx + (w.x / w.z) * f, y1 = cy + (w.y / w.z) * f;
+          var x0 = cx + (w.x / zTail) * f, y0 = cy + (w.y / zTail) * f;
+          var a = clamp((1 - w.z) * 1.3, 0, 1) * fade;
+          if (a <= 0.01) continue;
+          ctx.strokeStyle = "rgba(" + w.tint + "," + a + ")";
+          ctx.lineWidth = clamp(1.8 * (1 - w.z) + 0.3, 0.3, 2.4);
+          ctx.beginPath();
+          ctx.moveTo(x0, y0);
+          ctx.lineTo(x1, y1);
+          ctx.stroke();
+        }
+      }
+
+      var last = 0;
+      function frame(time) {
+        if (start === null) start = time;
+        var t = time / 1000;
+        var elapsed = (time - start) / 1000;
+        var dt = last ? Math.min((time - last) / 1000, 0.05) : 0.016;
+        last = time;
+        ctx.clearRect(0, 0, width, height);
+        if (warpOn && elapsed < WARP_TIME + 0.6) {
+          var skyFade = clamp((elapsed - (WARP_TIME - 1.2)) / 1.4, 0, 1);
+          var warpFade = 1 - clamp((elapsed - (WARP_TIME - 0.6)) / 1.2, 0, 1);
+          drawWarp(elapsed, dt, warpFade);
+          drawSky(t, skyFade);
+          drawPlanet(clamp((elapsed - WARP_TIME * 0.35) / (WARP_TIME * 0.75), 0, 1));
+        } else {
+          drawSky(t, 1);
+          drawPlanet(1);
+        }
+        requestAnimationFrame(frame);
+      }
+
+      var resizeTimer = null;
+      window.addEventListener("resize", function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          makeStars();
+          if (still) { ctx.clearRect(0, 0, width, height); drawSky(0, 1); drawPlanet(1); }
+        }, 200);
+      });
+
+      makeStars();
+      if (warpOn) makeWarp();
+      if (still) {
+        drawSky(0, 1);
+        drawPlanet(1);
+      } else {
+        requestAnimationFrame(frame);
+      }
+    })();
+  </script>
+
+</body>
+</html>
