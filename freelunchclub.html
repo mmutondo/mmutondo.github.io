@@ -178,6 +178,16 @@
       text-align: left;
     }
 
+    /* Reasons fill every row: cards in a short last row stretch to the edge */
+    .bento.reasons {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .bento.reasons .compartment {
+      flex: 1 1 220px;
+    }
+
     .compartment p {
       margin: 8px 0 0;
       font-size: 0.95rem;
@@ -509,7 +519,7 @@
     <section id="why-bento">
       <h2>Feed your body. Feed your career.</h2>
       <p>People in research and academia look after their students, their experiments and their deadlines, and often forget to look after themselves. That is why every box comes with a working-lunch bento recipe with a Zambian twist.</p>
-      <div class="bento">
+      <div class="bento reasons">
         <div class="compartment reason">
           <h3>A real lunch</h3>
           <p>Researchers skip meals, eat at their desks or live on tea between lectures. A packed bento means lunch is already there.</p>
